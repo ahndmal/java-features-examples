@@ -12,11 +12,12 @@ import java.util.Properties;
 
 public class SendEmailSMTP {
 
-    private static final String SMTP_SERVER = "smtp server ";
-    private static final String USERNAME = "";
-    private static final String PASSWORD = "";
+    // port = 587
+    private static final String SMTP_SERVER = "smtp.gmail.com";
+    private static final String USERNAME = "anmamessenger@gmail.com";
+    private static final String PASSWORD = "Tvf1732nSc";
 
-    private static final String EMAIL_FROM = "From@gmail.com";
+    private static final String EMAIL_FROM = "anmatester@gmail.com";
     private static final String EMAIL_TO = "quadr988@gmail.com";
     private static final String EMAIL_TO_CC = "";
 
