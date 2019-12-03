@@ -1,4 +1,4 @@
-package com.anma.java;
+package com.anma.java.rabbitmq;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
