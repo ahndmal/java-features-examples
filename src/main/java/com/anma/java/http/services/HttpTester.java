@@ -24,7 +24,6 @@ public class HttpTester {
 
         System.out.println(jsonObject.get("username"));
 
-
     }
 
     private static void testOkHttp(String url) throws IOException {
