@@ -1,14 +1,16 @@
 package com.anma.java.system;
 
+import java.util.Map;
 import java.util.Properties;
 
 public class SystemTester {
 
     public static void main(String[] args) {
 
+        Map<String, String> envs = System.getenv();
         Properties properties = System.getProperties();
 
-        properties.values();
-//        properties.entrySet().forEach((k,v) =>System.out.println(k, v));
+        envs.entrySet().forEach(System.out::println);
+//        properties.entrySet().forEach(System.out::println);
     }
 }
