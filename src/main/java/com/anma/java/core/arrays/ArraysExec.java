@@ -2,7 +2,7 @@ package com.anma.java.core.arrays;
 
 import java.util.Arrays;
 
-public class ArraysTest {
+public class ArraysExec {
 
     public static void main(String[] args) {
 

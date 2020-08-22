@@ -7,7 +7,7 @@ import java.text.Collator;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class MiscTest {
+public class MiscExec {
 
     enum Role {
         ROLE_ADMIN, ROLE_USER
