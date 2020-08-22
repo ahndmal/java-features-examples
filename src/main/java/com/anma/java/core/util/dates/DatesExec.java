@@ -10,9 +10,7 @@ import java.util.TimeZone;
 public class DatesExec {
 
     public static void main(String[] args) throws ParseException {
-
-        years();
-
+        calendars();
     }
 
 //     LocalDateTime
@@ -80,6 +78,8 @@ public class DatesExec {
         Calendar calendar1 = builder.setFields(Calendar.YEAR, 2020,
                 Calendar.MONTH, Calendar.AUGUST,
                 Calendar.DAY_OF_MONTH, 23).build();
+        Date dateFromCal2 = calendar1.getTime();
+        System.out.println("Datefrom built Calendar -> " + dateFromCal2);
     }
 
 
