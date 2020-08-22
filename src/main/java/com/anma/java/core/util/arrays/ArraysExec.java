@@ -1,4 +1,4 @@
-package com.anma.java.core.arrays;
+package com.anma.java.core.util.arrays;
 
 import java.util.Arrays;
 

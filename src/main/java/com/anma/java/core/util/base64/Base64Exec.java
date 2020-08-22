@@ -1,4 +1,4 @@
-package com.anma.java.core.base64;
+package com.anma.java.core.util.base64;
 
 import java.util.Arrays;
 import java.util.Base64;
