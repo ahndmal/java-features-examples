@@ -11,9 +11,12 @@ public class FilesExec {
 
     }
 
+//    File Reader / Writer
     private static void readerWriter() throws IOException {
+
         FileReader reader = new FileReader("src/resources/text2.txt");
         FileReader reader2 = new FileReader(new File("src/resources/text2.txt"));
+        
         int read = reader.read();
         System.out.println(read);
         reader.close();
@@ -23,6 +26,8 @@ public class FilesExec {
         writer.close();
     }
 
+
+//    Buffered Reader
     private static void readFileWithBuffer() throws IOException {
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader("src/resources/text2.txt"));
@@ -38,6 +43,7 @@ public class FilesExec {
         bufferedWriter.close();
     }
 
+
     private static void readFileWithBufferFromSystem() throws IOException {
         StringBuilder resultStringBuilder = new StringBuilder();
         try (BufferedReader br
@@ -49,12 +55,14 @@ public class FilesExec {
         }
     }
 
+
     private static void fileInputstream1() throws IOException {
         FileInputStream fileInputStream = new FileInputStream("src/resources/text2.txt");
         int read = fileInputStream.read();
         System.out.println(read);
     }
 
+//    File URL
     private static void fileUrl() throws URISyntaxException {
 
         File file2 = new File(new File("XXXXXX").toURI());
@@ -64,6 +72,7 @@ public class FilesExec {
         System.out.println(file2.canWrite());
     }
 
+//    File
     private static void file1() {
 
         File file = new File("src/resources/text2.txt");

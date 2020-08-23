@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
 public class PrintStreamExe {
-    
+
     public static void main(String[] args) throws FileNotFoundException {
 
         PrintStream printStream = new PrintStream(new File("src/resources/text2.txt"));
