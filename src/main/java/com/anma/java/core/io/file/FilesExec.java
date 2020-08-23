@@ -26,6 +26,7 @@ public class FilesExec {
     private static void readFileWithBuffer() throws IOException {
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader("src/resources/text2.txt"));
+        BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("src/resources/text2.txt")));
 
         String line = bufferedReader.readLine();
         System.out.println(line);
