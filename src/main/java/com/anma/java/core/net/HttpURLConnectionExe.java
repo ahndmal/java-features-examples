@@ -2,6 +2,9 @@ package com.anma.java.core.net;
 
 import java.io.*;
 import java.net.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.jar.Manifest;
 
 public class HttpURLConnectionExe {
@@ -11,6 +14,12 @@ public class HttpURLConnectionExe {
         URL url = new URL("https://docs.oracle.com/javase/8/docs/api/index.html");
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        Map<String, List<String>> headerFields = connection.getHeaderFields();
+
+        for (Map.Entry<String, List<String>> entry : headerFields.entrySet()) {
+            System.out.println(" Header field == " + entry);
+        }
 
         System.out.println(connection.getHeaderField("Request Method"));
         System.out.println(connection.getHeaderField(1));
