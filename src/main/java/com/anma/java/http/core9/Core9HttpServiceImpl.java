@@ -1,13 +1,9 @@
-package com.anma.java.http.services.core9;
+package com.anma.java.http.core9;
 
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.time.Duration;
 
 import static java.time.temporal.ChronoUnit.SECONDS;

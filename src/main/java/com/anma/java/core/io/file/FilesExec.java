@@ -16,7 +16,7 @@ public class FilesExec {
 
         FileReader reader = new FileReader("src/resources/text2.txt");
         FileReader reader2 = new FileReader(new File("src/resources/text2.txt"));
-        
+
         int read = reader.read();
         System.out.println(read);
         reader.close();

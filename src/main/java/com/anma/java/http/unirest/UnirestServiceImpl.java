@@ -1,4 +1,4 @@
-package com.anma.java.http.services.unirest;
+package com.anma.java.http.unirest;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;

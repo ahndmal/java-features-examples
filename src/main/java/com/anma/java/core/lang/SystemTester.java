@@ -1,4 +1,4 @@
-package com.anma.java.system;
+package com.anma.java.core.lang;
 
 import java.util.Map;
 import java.util.Properties;
@@ -11,6 +11,6 @@ public class SystemTester {
         Properties properties = System.getProperties();
 
         envs.entrySet().forEach(System.out::println);
-//        properties.entrySet().forEach(System.out::println);
+        properties.entrySet().forEach(System.out::println);
     }
 }

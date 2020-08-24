@@ -1,4 +1,4 @@
-package com.anma.java.http.services.core11;
+package com.anma.java.http.core11;
 
 import java.io.IOException;
 import java.net.URI;

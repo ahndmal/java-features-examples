@@ -1,12 +1,10 @@
-package com.anma.java.http.services.okhttp;
+package com.anma.java.http.okhttp;
 
-import com.squareup.okhttp.ConnectionSpec;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map;
 
 public class OkHttpServiceImpl implements OkHttpService {

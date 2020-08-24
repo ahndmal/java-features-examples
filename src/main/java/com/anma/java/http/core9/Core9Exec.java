@@ -1,4 +1,4 @@
-package com.anma.java.http.services.core9;//package com.anma.bh.sb.springtesting.services.core9;
+package com.anma.java.http.core9;//package com.anma.bh.sb.springtesting.services.core9;
 //
 //import java.io.IOException;
 //import java.net.URI;

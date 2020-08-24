@@ -1,8 +1,8 @@
-package com.anma.java.http.services;
+package com.anma.java.http;
 
-import com.anma.java.http.services.netcore.old.CoreNetServiceImpl;
-import com.anma.java.http.services.okhttp.OkHttpServiceImpl;
-import com.anma.java.http.services.unirest.UnirestServiceImpl;
+import com.anma.java.http.okhttp.OkHttpServiceImpl;
+import com.anma.java.http.netcore.old.CoreNetServiceImpl;
+import com.anma.java.http.unirest.UnirestServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;

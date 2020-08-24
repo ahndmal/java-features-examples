@@ -1,4 +1,4 @@
-package com.anma.java.http.services.netcore.old;
+package com.anma.java.http.netcore.old;
 
 import java.io.BufferedReader;
 import java.io.IOException;

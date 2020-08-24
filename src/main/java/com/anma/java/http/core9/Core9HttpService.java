@@ -1,4 +1,4 @@
-package com.anma.java.http.services.core9;
+package com.anma.java.http.core9;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;

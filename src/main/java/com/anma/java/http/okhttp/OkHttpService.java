@@ -1,4 +1,4 @@
-package com.anma.java.http.services.okhttp;
+package com.anma.java.http.okhttp;
 
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;

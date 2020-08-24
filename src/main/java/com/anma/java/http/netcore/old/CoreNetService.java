@@ -1,4 +1,4 @@
-package com.anma.java.http.services.netcore.old;
+package com.anma.java.http.netcore.old;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
