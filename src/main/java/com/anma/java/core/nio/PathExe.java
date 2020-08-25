@@ -2,6 +2,7 @@ package com.anma.java.core.nio;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class PathExe {
 
@@ -15,5 +16,8 @@ public class PathExe {
 
         Path path2 = Path.of("src/resources/text2-new.txt").getParent();
         System.out.println(path2);
+
+        Path path3 = Paths.get("src/resources/text2-new.txt");
+        System.out.println(path3.getParent());
     }
 }
