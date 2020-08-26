@@ -13,7 +13,7 @@ public class SimpleDateFormatExe {
         System.out.println(simpleDateFormat.format(new Date()));
 
         simpleDateFormat.applyPattern("dd/MM/yyyy");
-        
+
         System.out.println(simpleDateFormat.format(new Date()));
     }
 }
