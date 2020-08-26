@@ -1,5 +1,9 @@
 package com.anma.java.core.util.dates;
 
+/*
+Please refer to CORE/TIME for more thorough info on Java 8 TIME (LocalDate, LocalTime, etc.)
+ */
+
 import java.text.ParseException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
