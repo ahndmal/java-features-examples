@@ -9,7 +9,7 @@ public class PreparedStatementExe {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        PreparedStatement preparedStatement = ConnectionExe.getConnection().prepareStatement("INSERT INTO blogs VALUES ?, ?, ?, ?, ?");
+        PreparedStatement preparedStatement = ConnectionExe.getConnection().prepareStatement("INSERT INTO blogs VALUES (?, ?, ?, ?, ?)");
 
         preparedStatement.setInt(1, 2);
         preparedStatement.setString(2, "some new body of the new blog ...");
@@ -18,6 +18,7 @@ public class PreparedStatementExe {
         preparedStatement.setInt(5, 1);
 
         System.out.println(preparedStatement.execute());
+
 
 
 
