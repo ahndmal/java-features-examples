@@ -21,6 +21,7 @@ public class LocalDateExe {
         System.out.println(localDate3.getDayOfWeek().toString());
 
         String formattedDate = localDate1.format(dateTimeFormatter);
+
         System.out.println(formattedDate);
         System.out.println(localDate5);
         System.out.println(localDate6);
