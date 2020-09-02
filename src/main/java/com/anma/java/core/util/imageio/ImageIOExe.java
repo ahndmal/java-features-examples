@@ -19,11 +19,7 @@ import javax.swing.JPanel;
  */
 
 public class ImageIOExe {
-    public static void main(String[] args) {
 
-        TextOverlay textOverlay = new TextOverlay();
-
-    }
 }
 
 
@@ -47,11 +43,14 @@ class TextOverlay extends JPanel {
     }
 
     private BufferedImage process(BufferedImage old) {
+
         int w = old.getWidth() / 3;
         int h = old.getHeight() / 3;
+
         BufferedImage img = new BufferedImage(
                 w, h, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
+
         g2d.drawImage(old, 0, 0, w, h, this);
         g2d.setPaint(Color.red);
         g2d.setFont(new Font("Serif", Font.BOLD, 20));
@@ -79,6 +78,7 @@ class TextOverlay extends JPanel {
     }
 
     public static void main(String[] args) {
+        
         EventQueue.invokeLater(new Runnable() {
 
             @Override
