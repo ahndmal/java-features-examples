@@ -78,7 +78,7 @@ class TextOverlay extends JPanel {
     }
 
     public static void main(String[] args) {
-        
+
         EventQueue.invokeLater(new Runnable() {
 
             @Override
