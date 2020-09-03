@@ -1,4 +1,4 @@
-package com.anma.java.core.net;
+package com.anma.java.core.net.socket;
 
 import javax.net.SocketFactory;
 import java.io.IOException;
