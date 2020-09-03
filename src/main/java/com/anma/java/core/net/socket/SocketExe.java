@@ -22,10 +22,8 @@ public class SocketExe {
         String userInput;
         while ((userInput = stdIn.readLine()) != null) {
             writer.println(userInput);
-            System.out.println("echo: " + reader.readLine());
+            System.out.println("Received message from Client: " + reader.readLine());
         }
-
-
     }
 
     private static void sockets3() throws IOException {
@@ -42,6 +40,7 @@ public class SocketExe {
     }
 
     private static void communicateWithMaxentTaggerServer(String host, int port, String charset) throws IOException {
+        //        communicateWithMaxentTaggerServer("localhost", 8091, Charset.defaultCharset().toString());
         if (host == null) {
             host = "localhost";
         }
