@@ -29,7 +29,7 @@ public class ChatServer {
   private String soundfile = DEFAULT_SOUND_FILE;
   private List<Connection> connections = null;
   private AudioClip connectSound = null;
-  private Map<String,String> hostToStudentMap = null;
+  private Map<String, String> hostToStudentMap = null;
 
   //
   // Methods for the Connection class
@@ -44,13 +44,13 @@ public class ChatServer {
   }
 
   void sendToAllClients(String message) {
-    for ( Connection c : connections ) {
+    for (Connection c : connections) {
       c.sendMessage(message);
     }
   }
 
   void playMagicSound() {
-    if ( connectSound != null ) {
+    if (connectSound != null) {
       connectSound.play();
     }
   }
@@ -86,18 +86,18 @@ public class ChatServer {
     if (connections != null) maxConnections = Integer.parseInt(connections);
 
     this.connections = new ArrayList<Connection>(maxConnections);
-    this.hostToStudentMap = new HashMap<String,String>(15);
+    this.hostToStudentMap = new HashMap<String, String>(15);
 
-    System.out.println("Server settings:\n\tPort="+port+"\n\tMax Backlog="+
-                       backlog+"\n\tMax Connections="+maxConnections+
-		       "\n\tHost File="+hostfile+"\n\tSound File="+soundfile);
+    System.out.println("Server settings:\n\tPort=" + port + "\n\tMax Backlog=" +
+            backlog + "\n\tMax Connections=" + maxConnections +
+            "\n\tHost File=" + hostfile + "\n\tSound File=" + soundfile);
 
     createHostList();
 
     try {
       URL sound = new URL(soundfile);
       connectSound = Applet.newAudioClip(sound);
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
 
@@ -113,35 +113,35 @@ public class ChatServer {
       InputStreamReader isr = new InputStreamReader(fis);
       BufferedReader br = new BufferedReader(isr);
       String aLine = null;
-      while((aLine = br.readLine()) != null) {
-	int spaceIndex = aLine.indexOf(' ');
-	if (spaceIndex == -1) {
-	  System.out.println("Invalid line in host file: "+aLine);
-	  continue;
-	}
-	String host = aLine.substring(0,spaceIndex);
-	String student = aLine.substring(spaceIndex+1);
-	System.out.println("Read: "+student+"@"+host);
-	hostToStudentMap.put(host,student);
+      while ((aLine = br.readLine()) != null) {
+        int spaceIndex = aLine.indexOf(' ');
+        if (spaceIndex == -1) {
+          System.out.println("Invalid line in host file: " + aLine);
+          continue;
+        }
+        String host = aLine.substring(0, spaceIndex);
+        String student = aLine.substring(spaceIndex + 1);
+        System.out.println("Read: " + student + "@" + host);
+        hostToStudentMap.put(host, student);
       }
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
-  }          
+  }
 
   private void processRequests() {
     ServerSocket serverSocket = null;
-    Socket communicationSocket;    
+    Socket communicationSocket;
 
     try {
       System.out.println("Attempting to start server...");
-      serverSocket = new ServerSocket(port,backlog);
-    } catch (IOException e) { 
-      System.out.println("Error starting server: Could not open port "+port);
+      serverSocket = new ServerSocket(port, backlog);
+    } catch (IOException e) {
+      System.out.println("Error starting server: Could not open port " + port);
       e.printStackTrace();
       System.exit(-1);
     }
-    System.out.println ("Started server on port "+port);
+    System.out.println("Started server on port " + port);
 
     // Run the listen/accept loop forever
     while (true) {
@@ -149,7 +149,7 @@ public class ChatServer {
         // Wait here and listen for a connection
         communicationSocket = serverSocket.accept();
         handleConnection(communicationSocket);
-      } catch (Exception e) { 
+      } catch (Exception e) {
         System.out.println("Unable to spawn child socket.");
         e.printStackTrace();
       }
@@ -159,9 +159,9 @@ public class ChatServer {
   private synchronized void handleConnection(Socket connection) {
     while (numConnections == maxConnections) {
       try {
-	wait();
-      } catch(Exception e) { 
-	e.printStackTrace();
+        wait();
+      } catch (Exception e) {
+        e.printStackTrace();
       }
     }
     numConnections++;
