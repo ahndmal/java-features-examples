@@ -1,5 +1,6 @@
 package com.anma.java.core.net;
 
+import javax.net.SocketFactory;
 import java.io.IOException;
 import java.net.*;
 
@@ -24,6 +25,9 @@ public class SocketExe {
         socket2.close();
         socket4.close();
 
+//        Javax https://docs.oracle.com/javase/8/docs/api/javax/net/SocketFactory.html
+        SocketFactory socketFactory = SocketFactory.getDefault();
+        Socket socket5 = socketFactory.createSocket();
 
     }
 }

@@ -1,5 +1,6 @@
 package com.anma.java.core.net;
 
+import javax.net.ServerSocketFactory;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -16,5 +17,11 @@ public class ServerSocketExe {
 
         serverSocket.getChannel();
         serverSocket.close();
+
+//        Javax https://docs.oracle.com/javase/8/docs/api/javax/net/ServerSocketFactory.html
+        ServerSocketFactory factory = ServerSocketFactory.getDefault();
+        ServerSocket serverSocket1 = factory.createServerSocket(8082);
+        serverSocket1.close();
+
     }
 }
