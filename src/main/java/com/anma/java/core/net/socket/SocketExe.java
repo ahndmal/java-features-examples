@@ -12,7 +12,19 @@ public class SocketExe {
 //        System.out.println(InetAddress.getLocalHost().getHostAddress());
 //        System.out.println(InetAddress.getLocalHost().getHostName());
 
-        communicateWithMaxentTaggerServer("localhost", 8091, Charset.defaultCharset().toString());
+//        communicateWithMaxentTaggerServer("localhost", 8091, Charset.defaultCharset().toString());
+
+        Socket echoSocket = new Socket("localhost", 8093);
+        PrintWriter writer = new PrintWriter(echoSocket.getOutputStream(), true);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
+        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+
+        String userInput;
+        while ((userInput = stdIn.readLine()) != null) {
+            writer.println(userInput);
+            System.out.println("echo: " + reader.readLine());
+        }
+
 
     }
 
@@ -36,7 +48,7 @@ public class SocketExe {
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in, charset));
         System.out.println("Input some text and press RETURN to POS tag it, or just RETURN to finish.");
 
-        for (String userInput; (userInput = stdIn.readLine()) != null && ! userInput.matches("\\n?"); ) {
+        for (String userInput; (userInput = stdIn.readLine()) != null && !userInput.matches("\\n?"); ) {
             try {
                 Socket socket = new Socket(host, port);
                 PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), charset), true);
@@ -69,20 +81,20 @@ public class SocketExe {
         Socket socket = new Socket();
 
         System.out.println("isConnected: " + socket.isConnected() +
-                " isBound: "     + socket.isBound() +
-                " isClosed: "    + socket.isClosed());
+                " isBound: " + socket.isBound() +
+                " isClosed: " + socket.isClosed());
 
         socket.connect(new InetSocketAddress("google.com", 80));
 
         System.out.println("isConnected: " + socket.isConnected() +
-                " isBound: "    + socket.isBound() +
-                " isClosed: "   + socket.isClosed());
+                " isBound: " + socket.isBound() +
+                " isClosed: " + socket.isClosed());
 
         socket.close();
 
         System.out.println("isConnected: " + socket.isConnected() +
-                " isBound: "    + socket.isBound() +
-                " isClosed: "   + socket.isClosed());
+                " isBound: " + socket.isBound() +
+                " isClosed: " + socket.isClosed());
     }
 
     private static void sockets1() throws IOException {
