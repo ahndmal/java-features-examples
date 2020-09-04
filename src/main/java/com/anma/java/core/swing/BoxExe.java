@@ -37,7 +37,7 @@ public class BoxExe {
 
         JTable table = new JTable(3, 3);
         CellEditor cellEditor = new DefaultCellEditor(new JCheckBox("Checkbox text"));
-        
+
         panel1.add(table);
 
         frame.getContentPane().add(panel1);
