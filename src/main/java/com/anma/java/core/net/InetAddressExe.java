@@ -8,8 +8,11 @@ public class InetAddressExe {
 
         InetAddress inetAddress = InetAddress.getLocalHost();
         InetAddress inetAddress2 = InetAddress.getByName(null);
+        InetAddress inetAddress3 = InetAddress.getByName("localhost");
 
         System.out.println(inetAddress.getHostName());
         System.out.println(inetAddress2.getHostName());
+        System.out.println(inetAddress3.getHostName());
+
     }
 }

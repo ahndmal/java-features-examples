@@ -28,11 +28,11 @@ class EchoClient {
 //        }
 
 //        String hostName = "DESKTOP-MVCJ9TB";
-        String hostName = "localhost";
+//        String hostName = "localhost";
+        String hostName = InetAddress.getLocalHost().getHostName();
         int portNumber = 8093;
 
         try (
-//                Socket echoSocket = new Socket(InetAddress.getByName(null), portNumber);
                 Socket echoSocket = new Socket(hostName, portNumber);
                 PrintWriter out =
                         new PrintWriter(echoSocket.getOutputStream(), true);
@@ -44,9 +44,9 @@ class EchoClient {
                                 new InputStreamReader(System.in))
         ) {
             String userInput;
-            while ((userInput = stdIn.readLine()) != null) {
+            while ((userInput = stdIn.readLine()) != null || !(userInput = stdIn.readLine()).equalsIgnoreCase("exit")) {
                 out.println(userInput);
-                System.out.println("echo: " + in.readLine());
+                System.out.println("Socket in Client: " + in.readLine());
             }
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + InetAddress.getByName(null));
@@ -80,7 +80,7 @@ class EchoServer {
         ) {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
-                out.println(inputLine);
+                out.println("Socket in server: " + inputLine);
             }
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
