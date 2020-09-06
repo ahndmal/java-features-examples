@@ -3,12 +3,18 @@ package com.anma.java.json.json.orgjson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class JsonExe {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Map<String, String> map = new HashMap<>();
         map.put("name", "Vasyl");
@@ -31,6 +37,22 @@ public class JsonExe {
         System.out.println(jsonObject2.toString());
         System.out.println(jsonObject3.toString());
         System.out.println(jsonObject4.toString());
+
+        URL url = new URL("https://restcountries.eu/rest/v2/capital/tallinn");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String input;
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((input = reader.readLine()) != null) {
+            stringBuilder.append(input);
+        }
+
+        JSONArray jsonArray1 = new JSONArray(stringBuilder.toString());
+        JSONObject tallin = jsonArray1.getJSONObject(0);
+        int area = tallin.getInt("area");
+        String country = tallin.getString("name");
+        System.out.println(area);
+        System.out.println(country);
 
     }
 }
