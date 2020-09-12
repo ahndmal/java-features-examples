@@ -27,18 +27,11 @@ public class UnirestExe {
     }
 
     static HttpResponse<JsonNode> getResponse(String url) throws UnirestException {
-
-        HttpResponse<JsonNode> response = Unirest.get(url).asJson();
-
-        return response;
-
+        return Unirest.get(url).asJson();
     }
 
     static String getBody(String url) throws UnirestException {
-
         return Unirest.get(url).asJson().getBody().toString();
-
     }
-
 
 }
