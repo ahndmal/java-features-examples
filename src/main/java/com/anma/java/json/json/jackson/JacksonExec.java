@@ -1,4 +1,4 @@
-package com.anma.java.json.json;
+package com.anma.java.json.json.jackson;
 
 import com.anma.java.json.json.entity.Cat;
 import com.anma.java.json.json.entity.Currency;

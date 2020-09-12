@@ -1,4 +1,4 @@
-package com.anma.java.json.json;
+package com.anma.java.json.json.gson;
 
 
 import com.anma.java.json.json.entity.Cat;
