@@ -49,7 +49,7 @@ public class OrgJsonExe {
 
         JSONArray jsonArray1 = new JSONArray(stringBuilder.toString());
         JSONObject tallin = jsonArray1.getJSONObject(0);
-        
+
         int area = tallin.getInt("area");
         String country = tallin.getString("name");
 
