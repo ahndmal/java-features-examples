@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JsonExe {
+public class OrgJsonExe {
     public static void main(String[] args) throws IOException {
 
         Map<String, String> map = new HashMap<>();
@@ -49,8 +49,10 @@ public class JsonExe {
 
         JSONArray jsonArray1 = new JSONArray(stringBuilder.toString());
         JSONObject tallin = jsonArray1.getJSONObject(0);
+        
         int area = tallin.getInt("area");
         String country = tallin.getString("name");
+
         System.out.println(area);
         System.out.println(country);
 
