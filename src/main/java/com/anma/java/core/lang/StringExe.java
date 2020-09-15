@@ -6,7 +6,13 @@ public class StringExe {
 
     public static void main(String[] args) {
 
-        stringBuilder();
+
+        String body = "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+AddNewSubscription\">API_Gateway AddNewSubscription</a></p>\n" +
+                "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+ModifyVasOptions\" style=\"letter-spacing: 0.0px;\">API_Gateway ModifyVasOptions</a></p>\n" +
+                "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+SimExchange\">API_Gateway SimExchange</a></p>\n" +
+                "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+PortIn\">API_Gateway PortIn</a></p></td></tr>";
+
+        System.out.println(body.contains("<a href=\"https://bass.netcracker.com"));
 
     }
 
