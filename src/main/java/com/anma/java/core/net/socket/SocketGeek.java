@@ -67,7 +67,7 @@ public class SocketGeek {
             Files.newBufferedReader(path).transferTo(output);
 
             System.out.println("Client disconnected!");
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }

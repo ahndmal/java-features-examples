@@ -9,6 +9,23 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateExe {
     public static void main(String[] args) {
 
+        String dateFromParams = null;
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        LocalDate resultDateFromParams;
+
+        if (dateFromParams != null) {
+            resultDateFromParams = LocalDate.parse(dateFromParams, dateTimeFormatter);
+        } else {
+            resultDateFromParams = LocalDate.now().minusDays(7);
+        }
+
+        System.out.println(resultDateFromParams);
+
+    }
+
+    private static void test1() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         LocalDate localDate1 = LocalDate.of(2020, 7,8);
@@ -25,7 +42,5 @@ public class LocalDateExe {
         System.out.println(formattedDate);
         System.out.println(localDate5);
         System.out.println(localDate6);
-
-
     }
 }

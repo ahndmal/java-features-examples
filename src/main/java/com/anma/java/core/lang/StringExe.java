@@ -6,14 +6,22 @@ public class StringExe {
 
     public static void main(String[] args) {
 
+        String lic = null;
+        if (lic == null) lic = "avtive";
+        System.out.println(lic);
 
+//        String names = "admin, ddoe, adoe";
+//        System.out.println(names.replaceAll("\\s+",""));
+
+    }
+
+    private static void links() {
         String body = "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+AddNewSubscription\">API_Gateway AddNewSubscription</a></p>\n" +
                 "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+ModifyVasOptions\" style=\"letter-spacing: 0.0px;\">API_Gateway ModifyVasOptions</a></p>\n" +
                 "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+SimExchange\">API_Gateway SimExchange</a></p>\n" +
                 "<p><a href=\"https://bass.netcracker.com/display/RKTN/API_Gateway+PortIn\">API_Gateway PortIn</a></p></td></tr>";
 
         System.out.println(body.contains("<a href=\"https://bass.netcracker.com"));
-
     }
 
     private static void misc() {
