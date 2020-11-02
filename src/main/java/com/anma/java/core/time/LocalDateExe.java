@@ -1,10 +1,8 @@
 package com.anma.java.core.time;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Year;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class LocalDateExe {
     public static void main(String[] args) {
@@ -21,7 +19,11 @@ public class LocalDateExe {
             resultDateFromParams = LocalDate.now().minusDays(7);
         }
 
-        System.out.println(resultDateFromParams);
+        Date modificationDate = new Date();
+
+        LocalDate modificationLocalDate = modificationDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        System.out.println(modificationLocalDate);
 
     }
 

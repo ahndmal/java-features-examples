@@ -9,6 +9,7 @@ public class MonthExe {
         Month jan = Month.JANUARY;
         Month feb = Month.of(2);
         Month march = Month.valueOf("MARCH");
+        Month april = jan.plus(3);
 
         int febValue = feb.getValue();
         int length = feb.length(true);
@@ -16,7 +17,7 @@ public class MonthExe {
         int maxLength = feb.maxLength();
 
         System.out.println(maxLength);
-
+        System.out.println(april.name());
 
 
     }
