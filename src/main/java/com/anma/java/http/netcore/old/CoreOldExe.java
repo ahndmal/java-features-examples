@@ -3,7 +3,9 @@ package com.anma.java.http.netcore.old;
 import com.anma.java.json.json.orgjson.OrgJsonExe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -14,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CoreOldExe {
 
@@ -25,7 +28,15 @@ public class CoreOldExe {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
             JSONObject jsonObject = OrgJsonExe.getJsonOrgObjext(reader.readLine());
-            System.out.println(jsonObject.get("name"));
+            JSONArray jsonArray = jsonObject.names();
+            Set<String> keySet = jsonObject.keySet();
+
+            System.out.println(keySet);
+            System.out.println(jsonArray);
+
+            keySet.forEach(key -> {
+                System.out.println(jsonObject.get(key));
+            });
 
         } catch (IOException e) {
             e.printStackTrace();
