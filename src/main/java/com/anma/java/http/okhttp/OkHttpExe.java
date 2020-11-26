@@ -7,9 +7,9 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 
 public class OkHttpExe {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-
+        testOkHttp("https://api.privatbank.ua/p24api/exchange_rates?json&date=10.04.2020");
 
     }
 

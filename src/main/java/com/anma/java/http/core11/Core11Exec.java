@@ -26,6 +26,8 @@ public class Core11Exec {
 
         System.out.println(response.statusCode());
         System.out.println(response.body());
+
+        System.out.println("** Headers:");
         response.headers().map().forEach((key, value) -> System.out.println(key + " ==== " + value));
     }
 
