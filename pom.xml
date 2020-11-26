@@ -114,10 +114,9 @@
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20200518</version>
+            <version>20201115</version>
+            <type>bundle</type>
         </dependency>
-
-
 
     </dependencies>
 

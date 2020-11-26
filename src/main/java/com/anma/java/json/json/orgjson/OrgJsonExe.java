@@ -14,6 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OrgJsonExe {
+
+    public static JSONObject getJsonOrgObjext(String json) {
+        return new JSONObject(json);
+    }
+
     public static void main(String[] args) throws IOException {
 
         Map<String, String> map = new HashMap<>();

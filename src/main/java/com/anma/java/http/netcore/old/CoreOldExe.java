@@ -1,8 +1,10 @@
 package com.anma.java.http.netcore.old;
 
+import com.anma.java.json.json.orgjson.OrgJsonExe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +23,9 @@ public class CoreOldExe {
             HttpURLConnection connection = getConnection("https://pokeapi.co/api/v2/pokemon/ditto");
             InputStream inputStream = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            System.out.println(reader.readLine());
+
+            JSONObject jsonObject = OrgJsonExe.getJsonOrgObjext(reader.readLine());
+            System.out.println(jsonObject.get("name"));
 
         } catch (IOException e) {
             e.printStackTrace();
