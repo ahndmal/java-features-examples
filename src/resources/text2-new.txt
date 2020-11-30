@@ -1,3 +1,6 @@
-HHHHHHHHHHHHHHHHH
-FFFFFFFF
-TTTTTTTTTTTTTT
+This is the text2-new.txt file
+
+Here comes the text ...
+Please note that the files is actually read!
+
+Thank you
