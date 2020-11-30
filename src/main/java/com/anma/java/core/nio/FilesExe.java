@@ -12,9 +12,13 @@ import java.util.stream.Stream;
 
 public class FilesExe {
 
+    final static String text2 = "src/resources/txt/text2-new.txt";
+    final static String dir = "src/resources/";
+    final static String wordFile = "src/resources/word/word_example_1.docx";
+
     public static void main(String[] args) throws URISyntaxException, IOException {
 
-        getFilesFromDir("src/resources");
+        readAllLines(wordFile);
     }
 
     private static void getFilesFromDir(String dir) throws IOException {
@@ -23,9 +27,9 @@ public class FilesExe {
         files.forEach(System.out::println);
     }
 
-    private static void readFile1() throws FileNotFoundException {
+    private static void readFile1(String file) throws FileNotFoundException {
 
-        File file1 = new File("src/resources/text2-new.txt");
+        File file1 = new File(file);
         BufferedReader reader = new BufferedReader(new FileReader(file1));
         try {
             while (reader.ready()) {
@@ -38,7 +42,8 @@ public class FilesExe {
     }
 
     private static void fileAttributes() throws IOException {
-        BasicFileAttributes attributes = Files.readAttributes(Path.of("src/resources/text2-new.txt"), BasicFileAttributes.class);
+
+        BasicFileAttributes attributes = Files.readAttributes(Path.of(text2), BasicFileAttributes.class);
         System.out.println(attributes.isOther());
         System.out.println(attributes.isDirectory());
     }
@@ -51,9 +56,9 @@ public class FilesExe {
         System.out.println(Files.size(Path.of("src/resources/text2-new.txt")));
     }
 
-    private static void readAllLines() throws IOException {
+    private static void readAllLines(String file) throws IOException {
 
-        List<String> lines = Files.readAllLines(Path.of("src/resources/text2-new.txt"), StandardCharsets.ISO_8859_1);
+        List<String> lines = Files.readAllLines(Path.of(file), StandardCharsets.ISO_8859_1);
         lines.forEach(System.out::println);
     }
 }
