@@ -16,8 +16,9 @@ import java.nio.file.StandardOpenOption;
 public class GsonExec {
 
     private final static String jsonUrl = "https://api.privatbank.ua/p24api/exchange_rates?json&date=01.04.2020";
-    private final static String path = "D:\\Programming\\java\\projects\\documents-parsing\\src\\resources\\json\\cats.json";
-    private final static String newFile = "D:\\Programming\\java\\projects\\documents-parsing\\src\\resources\\json\\catsFromGson.json";
+    private final static String jsonUrl2 = "https://jsonplaceholder.typicode.com/todos";
+    private final static String path = "E:\\programming\\java\\projects\\java-example\\src\\resources\\json\\cats.json";
+    private final static String newFile = "E:\\programming\\java\\projects\\java-example\\src\\resources\\json\\catsFromGson.json";
 
     public static void main(String[] args) {
 
@@ -30,17 +31,19 @@ public class GsonExec {
 
             JsonReader jsonReader = new JsonReader(new InputStreamReader(new URL(jsonUrl).openStream()));
             Currency currency = gson.fromJson(jsonReader, Currency.class);
+            Object currency1 = gson.fromJson(new BufferedReader(new InputStreamReader(new URL(jsonUrl2).openStream())), Object.class);
+
             System.out.println(currency.getBank());
+            System.out.println(currency1);
 
             JsonReader jsonReader2 = new JsonReader(new FileReader(new File(path)));
             Cat[] cats = gson.fromJson(jsonReader2, Cat[].class);
 
             for (Cat cat: cats) {
-                System.out.println(cat.getName());
+                System.out.println("Cat name: " + cat.getName());
             }
 
             String gsonString = gson.toJson(cats);
-
             System.out.println(gsonString);
 
             Files.write(Paths.get(newFile), gsonString.getBytes(), StandardOpenOption.CREATE);
