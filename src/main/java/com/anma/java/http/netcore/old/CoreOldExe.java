@@ -20,8 +20,13 @@ import java.util.Set;
 
 public class CoreOldExe {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
+        System.out.println(readUrl("https://pokeapi.co/api/v2/pokemon/ditto"));
+
+    }
+
+    private static void readUrlJson() {
         try {
             HttpURLConnection connection = getConnection("https://pokeapi.co/api/v2/pokemon/ditto");
             InputStream inputStream = connection.getInputStream();
@@ -41,7 +46,6 @@ public class CoreOldExe {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private static void testCoreNet(String url) throws Exception {
