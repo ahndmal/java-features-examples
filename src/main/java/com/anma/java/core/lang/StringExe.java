@@ -1,17 +1,21 @@
 package com.anma.java.core.lang;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 
 public class StringExe {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        String lic = null;
-        if (lic == null) lic = "avtive";
-        System.out.println(lic);
-
-//        String names = "admin, ddoe, adoe";
-//        System.out.println(names.replaceAll("\\s+",""));
+        byte[] bytesFromURL = new URL("https://jsonplaceholder.typicode.com/users/1").openStream().readAllBytes();
+        String fromURL = new String(bytesFromURL);
+        System.out.println(fromURL);
+        
 
     }
 
