@@ -15,7 +15,6 @@ public class StringExe {
         byte[] bytesFromURL = new URL("https://jsonplaceholder.typicode.com/users/1").openStream().readAllBytes();
         String fromURL = new String(bytesFromURL);
         System.out.println(fromURL);
-        
 
     }
 

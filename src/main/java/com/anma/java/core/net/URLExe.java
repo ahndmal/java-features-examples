@@ -14,8 +14,6 @@ public class URLExe {
         System.out.println(url.getPath());
         System.out.println(url.getFile());
         System.out.println(url.getUserInfo());
-        System.out.println(url.getUserInfo());
 
-//        HttpURLConnection connection =
     }
 }

@@ -5,13 +5,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -22,8 +20,52 @@ public class CoreOldExe {
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println(readUrl("https://pokeapi.co/api/v2/pokemon/ditto"));
+        POSTrequest();
 
+    }
+
+    private static void POSTrequest() throws IOException {
+        HttpURLConnection connectionPost = (HttpURLConnection) new URL("https://httpbin.org/post").openConnection();
+        connectionPost.setRequestMethod("POST");
+        connectionPost.setRequestProperty("Content-Type", "application/json");
+        connectionPost.setRequestProperty("User-Agent", "Mozilla/5.0");
+        connectionPost.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        connectionPost.setDoOutput(true);
+        /* String urlParameters = "sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+           try (DataOutputStream wr = new DataOutputStream(connectionPost.getOutputStream())) {
+            wr.writeBytes(urlParameters);
+            wr.flush();
+        }*/
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(connectionPost.getOutputStream()));
+        writer.write("\"name\": \"Vasyl\"");
+        writer.flush();
+        int responseCode = connectionPost.getResponseCode();
+        System.out.println("** Sending POST request");
+        System.out.println("** Status code is " + responseCode);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connectionPost.getInputStream()));
+        String line;
+        StringBuilder response = new StringBuilder();
+
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        System.out.println(response.toString());
+    }
+
+    @NotNull
+    private static HttpURLConnection GETrequest() throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) new URL("https://pokeapi.co/api/v2/pokemon/ditto").openConnection();
+        connection.setRequestMethod("GET");
+//        connection.setRequestProperty("Test Header", "Header value");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String line = "";
+        StringBuilder builder = new StringBuilder();
+        while ((line = reader.readLine()) != null) {
+            builder.append(line);
+        }
+        System.out.println(builder.toString());
+        connection.disconnect();
+        return connection;
     }
 
     private static void readUrlJson() {
