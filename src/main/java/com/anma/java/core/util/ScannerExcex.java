@@ -9,7 +9,19 @@ import java.util.Scanner;
 public class ScannerExcex {
     public static void main(String[] args) throws FileNotFoundException {
 
-        systemIn();
+        Scanner scan = new Scanner(System.in);
+        int i = scan.nextInt();
+        double d = scan.nextDouble();
+        String s = scan.next();
+        String s2 = scan.nextLine();
+
+
+
+        // Write your code here.
+
+        System.out.println("String: " + s + s2);
+        System.out.println("Double: " + d);
+        System.out.println("Int: " + i);
 
     }
 

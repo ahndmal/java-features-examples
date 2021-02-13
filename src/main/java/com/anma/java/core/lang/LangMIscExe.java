@@ -4,7 +4,13 @@ public class LangMIscExe {
 
     public static void main(String[] args) {
 
+        boolean[] arr = new boolean[] {true, false, true, false, true};
 
+        for (Boolean a : arr) {
+            if (a != null) {
+                System.out.println(a);
+            }
+        }
 
     }
 

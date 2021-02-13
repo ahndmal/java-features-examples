@@ -15,8 +15,9 @@ public class MiscExec {
 
     public static void main(String[] args) {
 
-        System.out.println(Role.ROLE_ADMIN.name() + "," + Role.ROLE_USER.name());
-        System.out.println(Arrays.toString(Role.values()));
+//        System.out.println(Role.ROLE_ADMIN.name() + "," + Role.ROLE_USER.name());
+//        System.out.println(Arrays.toString(Role.values()));
+//        "asd".startsWith();
 
     }
 }

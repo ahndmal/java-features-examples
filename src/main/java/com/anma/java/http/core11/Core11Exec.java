@@ -16,7 +16,7 @@ public class Core11Exec {
     }
 
     private static void POST() throws IOException, InterruptedException {
-        
+
         HttpClient httpClient = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
@@ -28,7 +28,7 @@ public class Core11Exec {
                 .build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.statusCode());
+        System.out.println("Status: " + response.statusCode());
         System.out.println(response.body());
     }
 
