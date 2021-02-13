@@ -20,6 +20,8 @@ public class GetServlet extends HttpServlet {
         String servletPath = req.getServletPath();
         String pathInfo = req.getPathInfo();
         String remoteHost = req.getRemoteHost();
+        String URI = req.getRequestURI();
+        String URL = req.getRequestURL().toString();
 
         req.setAttribute("scheme", scheme);
         req.setAttribute("serverName", serverName);
@@ -28,12 +30,13 @@ public class GetServlet extends HttpServlet {
         req.setAttribute("servletPath", servletPath);
         req.setAttribute("pathInfo", pathInfo);
         req.setAttribute("remoteHost", remoteHost);
+        req.setAttribute("URI", URI);
+        req.setAttribute("URL", URL);
 
 //        resp.getWriter().write("Remote host is " + remoteHost);
 //        req.getRequestDispatcher("/web/html_pages/index.html").forward(req, resp);
         req.getRequestDispatcher("/web/jsp/index.jsp").forward(req, resp);
     }
-
 
 
     private String getHost(HttpServletRequest req) {

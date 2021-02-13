@@ -20,7 +20,10 @@
         ${servletPath} <br>
         ${pathInfo} <br>
         ${remoteHost} <br>
+        ${URI} <br>
+        ${URL} <br>
     </div>
+    <br>
     <div id="add"></div>
 </body>
 <script>
