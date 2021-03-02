@@ -8,6 +8,10 @@
     <artifactId>java-examples</artifactId>
     <version>1.0.1</version>
 
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -109,7 +113,7 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20201115</version>
-            <type>bundle</type>
+<!--            <type>bundle</type>-->
         </dependency>
 
         <dependency>
