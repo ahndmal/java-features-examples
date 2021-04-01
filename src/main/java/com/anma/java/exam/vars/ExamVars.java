@@ -1,4 +1,4 @@
-package com.anma.java.exam;
+package com.anma.java.exam.vars;
 
 import java.io.ByteArrayOutputStream;
 

@@ -1,4 +1,4 @@
-package com.anma.java.exam;
+package com.anma.java.exam.lambda;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
