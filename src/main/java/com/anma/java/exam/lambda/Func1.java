@@ -6,6 +6,7 @@ import java.util.function.DoublePredicate;
 import java.util.function.IntPredicate;
 
 public class Func1 {
+
     public static void main(String[] args) {
 
         DoubleFunction<Double> area = r -> Math.PI * r * r;
