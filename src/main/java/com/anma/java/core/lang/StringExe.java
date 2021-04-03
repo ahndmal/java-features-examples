@@ -63,6 +63,7 @@ public class StringExe {
 
         StringBuilder stringBuilder = new StringBuilder("I ");
         stringBuilder.append("love ").append("Java!");
+        stringBuilder.insert(3, " inserted ");
         System.out.println(stringBuilder.toString());
 
         String a = "Interal";
