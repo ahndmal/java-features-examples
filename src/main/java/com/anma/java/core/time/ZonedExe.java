@@ -12,7 +12,7 @@ public class ZonedExe {
 
         LocalDateTime someTime = LocalDateTime.now();
         ZonedDateTime londonTime = ZonedDateTime.of(someTime, london);
-        ZonedDateTime laTime = ZonedDateTime.of(someTime, LA);
+        ZonedDateTime laTime = londonTime.withZoneSameInstant(LA);
         System.out.println(londonTime);
         System.out.println(laTime);
 

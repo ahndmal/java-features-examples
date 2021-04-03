@@ -1,16 +1,26 @@
 package com.anma.java.core.util;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class LocaleExec {
 
     public static void main(String[] args) {
-        localeMisc1();
+        resources();
+    }
+
+    private static void resources() {
+
+        Locale locale = new Locale("en", "GB");
+        Locale localeRu = new Locale("ru");
+        ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
+        String hello = bundle.getString("hello");
+        System.out.println(hello);
     }
 
     private static void localeMisc1() {
         Locale eng = Locale.ENGLISH;
-        Locale us = Locale.getDefault();
+        Locale aDefault = Locale.getDefault();
 //        Locale ua1 = Locale.forLanguageTag("uk_UA");
         Locale ua2 = new Locale("uk", "UA");
 
