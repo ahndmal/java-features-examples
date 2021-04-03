@@ -10,6 +10,7 @@ public class PrintStreamExe {
 
         PrintStream printStream = new PrintStream(new File("src/resources/text2.txt"));
         PrintStream printStream2 = new PrintStream(System.out);
-        printStream2.println("AAAA");
+        printStream.println("Text for the file!");
+        printStream2.println("To console");
     }
 }
