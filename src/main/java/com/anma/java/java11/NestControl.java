@@ -11,6 +11,7 @@ class Outer {
     private static String level = "outer";
 
     public static class Inner {
+
         public static String getOuterViaRegularFieldAccess() {
             return Outer.level;
         }
