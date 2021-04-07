@@ -6,7 +6,10 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringExe {
 
@@ -88,5 +91,15 @@ public class StringExe {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Hello ").append("from ").append("program");
         System.out.println(stringBuffer.toString());
+    }
+
+    // Java 11
+    private static void StringJava11() {
+        " ".isBlank();
+        "   Sonme text".strip();
+
+        List<String> lines = new ArrayList<>();
+        "This\nis\nnew\nline".lines().forEach(l -> lines.add(l));
+
     }
 }

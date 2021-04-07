@@ -18,7 +18,7 @@ public class DocumentsExe {
         document.createElement("html");
 
         Document document2 = builder.parse("https://www.codota.com/code/java/classes/org.w3c.dom.Document");
-        System.out.println(document2.getDocumentElement().getAttribute("section"));
+        System.out.println(document2.getDocumentElement().getAttribute("div"));
 
 //        Document document3 = builder.parse(new ByteArrayInputStream("<html><head><title>This is title</title></head><>bodyThis is body</body></html>".getBytes()));
 //        System.out.println(document3.getDocumentElement());
