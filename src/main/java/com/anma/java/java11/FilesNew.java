@@ -1,12 +1,5 @@
 package com.anma.java.java11;
 
-
-/*
- Java 11 Files API
- https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html
- https://www.baeldung.com/java-nio-2-file-api
- */
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -15,6 +8,12 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+
+/*
+ Java 11 Files API
+ https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html
+ https://www.baeldung.com/java-nio-2-file-api
+ */
 
 public class FilesNew {
 
