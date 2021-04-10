@@ -3,6 +3,7 @@ package com.anma.java.exam.mthread;
 public class MultiThreadsExe {
     public static void main(String[] args) {
 
+        System.out.println(System.currentTimeMillis());
         // via implementing Runnable
         new Thread(new Multiplier()).start();
         new Thread(new Multiplier()).start();
@@ -15,7 +16,7 @@ public class MultiThreadsExe {
         // via lambda
         Runnable r1 = () -> System.out.println(String.format("Lambda: %f", Math.random() + 1));
         new Thread(r1).start();
-
+        System.out.println(System.currentTimeMillis());
 
     }
 }
