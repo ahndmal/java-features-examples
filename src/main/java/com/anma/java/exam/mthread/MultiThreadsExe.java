@@ -1,5 +1,7 @@
 package com.anma.java.exam.mthread;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -37,6 +39,8 @@ public class MultiThreadsExe {
                 System.out.println(Thread.currentThread().getId());
             }
         }
+
+        Collections.synchronizedList(new ArrayList<>());
     }
 }
 
@@ -47,7 +51,6 @@ class Multiplier implements Runnable {
     }
 
     synchronized void print2() {
-
     }
 
     @Override
