@@ -1,5 +1,8 @@
 package com.anma.java.reflect;
 
+import com.anma.java.exam.annot.MyAnnotation;
+
+@MyAnnotation(countries = {"UA", "UK"}, name = "Petro", value = "value 1")
 public class ReflClassOne {
 
     static int seq = 4;

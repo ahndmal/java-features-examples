@@ -15,5 +15,8 @@ public class ReflExe {
             System.out.println(field.getName());
         }
 
+        Class annotType = ReflClassOne.class.getAnnotations()[0].annotationType();
+        System.out.println(annotType);
+
     }
 }
