@@ -1,9 +1,6 @@
 package com.anma.java.exam.lambda;
 
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class ExamLambda {
 
@@ -19,6 +16,11 @@ public class ExamLambda {
 //        Predicate<Integer> predicate1
         Predicate<String> consumer1 = s ->  s instanceof String;
         Predicate<Integer> cons2 = i ->  i > 3;
+        BiPredicate<Integer, Integer> biPredicate1 = (x, y) -> x == y;
+        
+        DoubleConsumer doubleConsumer = (x) -> System.out.println(x);
+        Function<String, String> strFunc1 = (x) -> "";
+        Supplier<String> supplier1 = () -> "Hello";
 
 
     }
