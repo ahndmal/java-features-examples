@@ -5,6 +5,7 @@ import java.util.function.DoubleFunction;
 import java.util.function.DoublePredicate;
 import java.util.function.IntPredicate;
 
+@FunctionalInterface
 interface LambdaInter1 {
 
     int calc(int a, int b);
@@ -19,15 +20,9 @@ public class Func1 implements LambdaInter1 {
 
     public static void main(String[] args) {
 
-//        int summ = new LambdaInter1() {
-//
-//            @Override
-//            public int calc(int a, int b) {
-//                return a + b;
-//            }
-//        }
+        LambdaInter1 lambdaInter1 = (a, b) -> a * b;
+        System.out.println(lambdaInter1.calc(4, 5));
 
-//        System.out.println(lam1);
 
         DoubleFunction<Double> area = r -> Math.PI * r * r;
         BiFunction<Integer, Integer, Integer> divide = (x, y) -> x / y;

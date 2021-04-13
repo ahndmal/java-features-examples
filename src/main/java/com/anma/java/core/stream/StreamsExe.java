@@ -27,4 +27,5 @@ public class StreamsExe {
         };
         List<Callable<String>> clients = Stream.generate(() -> client).limit(5).collect(Collectors.toList());
     }
+
 }
