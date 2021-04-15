@@ -8,7 +8,11 @@ import java.util.function.IntPredicate;
 @FunctionalInterface
 interface LambdaInter1 {
 
-    int calc(int a, int b);
+    abstract int calc(int a, int b);
+    default void calcDef() {
+
+    }
+//    abstract calc2();
 }
 
 public class Func1 implements LambdaInter1 {
