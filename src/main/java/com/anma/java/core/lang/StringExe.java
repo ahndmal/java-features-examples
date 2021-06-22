@@ -15,6 +15,8 @@ public class StringExe {
 
     public static void main(String[] args) throws IOException {
 
+//        "dd".contentEquals()
+
         byte[] bytesFromURL = new URL("https://jsonplaceholder.typicode.com/users/1").openStream().readAllBytes();
         String fromURL = new String(bytesFromURL);
         System.out.println(fromURL);
