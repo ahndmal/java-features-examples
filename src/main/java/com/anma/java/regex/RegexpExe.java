@@ -7,7 +7,7 @@ public class RegexpExe {
 
     public static void main(String[] args) {
 
-        String pattern = "FC-*";
+        String pattern = "(FC-[a-z])";
         String text = "FC-OOB-OM-001";
 
         Pattern regex = Pattern.compile(pattern);
