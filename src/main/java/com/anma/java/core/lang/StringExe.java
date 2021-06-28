@@ -5,7 +5,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,13 +17,20 @@ import java.util.stream.Collectors;
 
 public class StringExe {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException {
 
-//        "dd".contentEquals()
+//        String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\du-fcs.txt";
+        String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\text2.txt";
+        URI fileUri = StringExe.class.getClassLoader().getResource("du-fcs.txt").toURI();
 
-        byte[] bytesFromURL = new URL("https://jsonplaceholder.typicode.com/users/1").openStream().readAllBytes();
-        String fromURL = new String(bytesFromURL);
-        System.out.println(fromURL);
+        Files.lines(Path.of(fileUri))
+                .collect(Collectors.toUnmodifiableSet()).forEach(System.out::println);
+
+
+
+//        byte[] bytesFromURL = new URL("https://jsonplaceholder.typicode.com/users/1").openStream().readAllBytes();
+//        String fromURL = new String(bytesFromURL);
+//        System.out.println(fromURL);
 
     }
 
