@@ -22,6 +22,7 @@ public class StringExe {
 //        String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\du-fcs.txt";
         String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\text2.txt";
         URI fileUri = StringExe.class.getClassLoader().getResource("du-fcs.txt").toURI();
+        
 
         Files.lines(Path.of(fileUri))
                 .collect(Collectors.toUnmodifiableSet()).forEach(System.out::println);
