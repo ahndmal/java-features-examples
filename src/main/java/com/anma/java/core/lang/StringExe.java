@@ -19,7 +19,13 @@ public class StringExe {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
 
-//        String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\du-fcs.txt";
+    String result = String.format("%s in the %s with %d items", "Petro", "Vasyl", 3);
+        System.out.println(result);
+
+    }
+
+    private static void files3() throws IOException, URISyntaxException {
+        //        String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\du-fcs.txt";
         String filePath = "E:\\programming\\java\\projects\\java-example\\src\\resources\\txt\\text2.txt";
         URI fileUri = StringExe.class.getClassLoader().getResource("du-fcs.txt").toURI();
 
@@ -27,12 +33,9 @@ public class StringExe {
         Files.lines(Path.of(fileUri))
                 .collect(Collectors.toUnmodifiableSet()).forEach(System.out::println);
 
-
-
 //        byte[] bytesFromURL = new URL("https://jsonplaceholder.typicode.com/users/1").openStream().readAllBytes();
 //        String fromURL = new String(bytesFromURL);
 //        System.out.println(fromURL);
-
     }
 
     private static void links() {
