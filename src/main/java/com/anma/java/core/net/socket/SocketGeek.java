@@ -13,11 +13,12 @@ import java.nio.file.Paths;
 
 public class SocketGeek {
 
-    private static String WWW = "E:\\programming\\java\\projects\\java-example\\src\\resources\\www";
+    private static final String WWW = SocketGeek.class.getResource("/www").toString();    //"E:\\programming\\java\\projects\\java-example\\src\\resources\\www";
 
     public static void main(String[] args) {
+        System.out.println(WWW);
 
-        try (ServerSocket serverSocket = new ServerSocket(8080)) {
+        try (ServerSocket serverSocket = new ServerSocket(7071)) {
             System.out.println("Server started!");
 
             while (true) {
@@ -55,7 +56,7 @@ public class SocketGeek {
                 output.println("HTTP/1.1 404 NOT_FOUND");
                 output.println("Content-Type: text/html; charset=utf-8");
                 output.println();
-                output.println("<h1>Файл не найден!</h1>");
+                output.println("<h1>Файл не знайдено!</h1>");
                 output.flush();
                 return;
             }
