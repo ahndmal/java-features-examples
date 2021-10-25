@@ -1,4 +1,4 @@
-package com.anma.java.sockets;
+package com.anma.java.core.net.socket;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +9,7 @@ public class SimpleSocket {
 
     public static void main(String[] args) throws IOException {
 
-        Socket socket = new Socket("example.com", 80);
+        Socket socket = new Socket("localhost", 7071);
 
         InputStream is = socket.getInputStream();
         OutputStream os = socket.getOutputStream();
@@ -17,7 +17,6 @@ public class SimpleSocket {
         String command = "GET / HTTP/1.1";
 
         os.write(command.getBytes());
-
         os.flush();
 
         int c = 0;
