@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -19,9 +20,7 @@ public class MdnSockets {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
 
-        ServerSocket server = new ServerSocket(7073);
-
-        try {
+        try (ServerSocket server = new ServerSocket(7073)) {
 
             System.out.println("Server has started on 127.0.0.1:80.\r\nWaiting for a connection...");
             Socket client = server.accept();
@@ -56,12 +55,9 @@ public class MdnSockets {
                 for (int i = 0; i < encoded.length; i++) {
                     decoded[i] = (byte) (encoded[i] ^ key[i & 0x3]);
                 }
+                System.out.println(Arrays.toString(decoded));
             }
-
             scanner.close();
-
-        } finally {
-            server.close();
         }
     }
 }
