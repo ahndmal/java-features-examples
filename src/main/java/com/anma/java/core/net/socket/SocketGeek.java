@@ -18,7 +18,7 @@ public class SocketGeek {
     public static void main(String[] args) {
         System.out.println(WWW);
 
-        try (ServerSocket serverSocket = new ServerSocket(7071)) {
+        try (ServerSocket serverSocket = new ServerSocket(7072)) {
             System.out.println("Server started!");
 
             while (true) {

@@ -13,14 +13,22 @@ public class SocketExe {
 //        System.out.println(InetAddress.getLocalHost().getHostName());
 
 //        communicateWithMaxentTaggerServer("localhost", 8091, Charset.defaultCharset().toString());
+        int PORT = 7072;
+        ServerSocket echoSocket = new ServerSocket(PORT);
+        System.out.println(">> Server socket opened on port " + PORT);
+        Socket client = echoSocket.accept();
+        System.out.println(">> Client connected");
+        client.setKeepAlive(true);
+        client.sendUrgentData(2);
 
-        Socket echoSocket = new Socket("localhost", 8093);
-        PrintWriter writer = new PrintWriter(echoSocket.getOutputStream(), true);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
-        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        byte[] bytes = client.getInputStream().readAllBytes();
+
+        System.out.println(new String(bytes));
 
         String userInput;
-        while ((userInput = stdIn.readLine()) != null) {
+        while ((userInput = reader.readLine()) != null) {
             writer.println(userInput);
             System.out.println("Received message from Client: " + reader.readLine());
         }

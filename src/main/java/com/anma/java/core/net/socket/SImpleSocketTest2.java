@@ -3,6 +3,7 @@ package com.anma.java.core.net.socket;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.stream.Stream;
 
 public class SImpleSocketTest2 {
 
@@ -19,16 +20,21 @@ public class SImpleSocketTest2 {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket1.getOutputStream()));
 
-            System.out.println(reader.readLine());
-            System.out.println(reader.readLine());
-            System.out.println(reader.readLine());
-            System.out.println(reader.readLine());
+//            System.out.println(reader.readLine());
+//            System.out.println(reader.readLine());
+//            System.out.println(reader.readLine());
+//            System.out.println(reader.readLine());
 
-            while(reader.ready()) {
-                System.out.println(reader.readLine());
-//                reader.transferTo(writer);
-            }
+            Stream<String> lines = reader.lines();
+            lines.forEach(System.out::println);
+
+//            while(reader.ready()) {
+//                System.out.println(reader.readLine());
+////                reader.transferTo(writer);
+//            }
             writer.write("out");
+
+            serverSocket.close();
 
 
         } catch (IOException e) {
