@@ -1,4 +1,4 @@
-package com.anma.java.core.net.socket;
+package com.anma.java.core.net.socket.chat;
 
 import java.io.*;
 import java.net.*;

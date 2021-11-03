@@ -20,7 +20,7 @@ public class MdnSockets {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
 
-        try (ServerSocket server = new ServerSocket(7073)) {
+        try (ServerSocket server = new ServerSocket(7072)) {
 
             System.out.println("Server has started on 127.0.0.1:80.\r\nWaiting for a connection...");
             Socket client = server.accept();
@@ -36,7 +36,7 @@ public class MdnSockets {
             if (matcher.find()) {
                 Matcher match = Pattern.compile("Sec-WebSocket-Key: (.*)").matcher(data);
                 match.find();
-                byte[] response = ("HTTP/1.1 101 Switching Protocols\r\n"
+                  byte[] response = ("HTTP/1.1 101 Switching Protocols\r\n"
                         + "Connection: Upgrade\r\n"
                         + "Upgrade: websocket\r\n"
                         + "Sec-WebSocket-Accept: "
@@ -47,15 +47,24 @@ public class MdnSockets {
                                                 .getBytes("UTF-8"))
                 )
                         + "\r\n\r\n").getBytes("UTF-8");
+
+//                byte[] clientResp = in.readAllBytes();
+//                client.close();
+//                byte[] response = "Hello!".getBytes(StandardCharsets.UTF_8);
+
                 out.write(response, 0, response.length);
 
                 byte[] decoded = new byte[6];
-                byte[] encoded = new byte[]{(byte) 198, (byte) 131, (byte) 130, (byte) 182, (byte) 194, (byte) 135};
+                byte[] encoded = new byte[] { (byte) 198, (byte) 131, (byte) 130, (byte) 182, (byte) 194, (byte) 135 };
                 byte[] key = new byte[]{(byte) 167, (byte) 225, (byte) 225, (byte) 210};
                 for (int i = 0; i < encoded.length; i++) {
                     decoded[i] = (byte) (encoded[i] ^ key[i & 0x3]);
                 }
                 System.out.println(Arrays.toString(decoded));
+                System.out.println(new String(decoded));
+                System.out.println(new String(response));
+                System.out.println(new String(key));
+//                System.out.println(new String(clientResp));
             }
             scanner.close();
         }

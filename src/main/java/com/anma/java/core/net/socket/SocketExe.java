@@ -4,6 +4,7 @@ import javax.net.SocketFactory;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class SocketExe {
 
@@ -14,24 +15,50 @@ public class SocketExe {
 
 //        communicateWithMaxentTaggerServer("localhost", 8091, Charset.defaultCharset().toString());
         int PORT = 7072;
-        ServerSocket echoSocket = new ServerSocket(PORT);
+        ServerSocket socket = new ServerSocket(PORT);
         System.out.println(">> Server socket opened on port " + PORT);
-        Socket client = echoSocket.accept();
+        Socket client = socket.accept();
         System.out.println(">> Client connected");
-        client.setKeepAlive(true);
-        client.sendUrgentData(2);
+//        client.setKeepAlive(true);
+//        client.sendUrgentData(2);
 
-        PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        byte[] bytes = client.getInputStream().readAllBytes();
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(client.getOutputStream(), StandardCharsets.UTF_8), true);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        client.getInputStream(), "UTF-8"));
+//        InputStreamReader reader = (new InputStreamReader(client.getInputStream(), "UTF8"));
 
-        System.out.println(new String(bytes));
 
-        String userInput;
+
+        writer.write("Hello from server!");
+
+//        PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+//        byte[] bytes = client.getInputStream().readAllBytes();
+//        System.out.println(new String(bytes));
+
+//        while (reader.ready()) {
+////            reader.transferTo(writer);
+//            writer.println(">> writer " + reader.readLine());
+//            System.out.println(">> sout" + reader.readLine());
+//        }
+//        System.out.println(">> reader encoding = " + reader.en());
+
+        String userInput = "";
         while ((userInput = reader.readLine()) != null) {
             writer.println(userInput);
             System.out.println("Received message from Client: " + reader.readLine());
         }
+
+
+//        client.
+
+        reader.close();
+        writer.flush();
+        writer.close();
+
+        client.close();
+        socket.close();
     }
 
     private static void sockets3() throws IOException {
