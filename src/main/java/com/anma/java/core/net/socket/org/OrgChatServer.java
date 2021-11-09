@@ -30,9 +30,12 @@ public class OrgChatServer extends WebSocketServer {
 
     @Override
     public void onOpen(WebSocket conn, ClientHandshake clientHandshake) {
+
         conn.send("Welcome to the server!"); //This method sends a message to the new client
+
         broadcast("new connection: " + clientHandshake
                 .getResourceDescriptor()); //This method sends a message to all clients connected
+
         System.out.println(
                 conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!");
     }
@@ -75,7 +78,6 @@ public class OrgChatServer extends WebSocketServer {
         int port = 7072;    // 843 flash policy port
 
         try {
-
             port = Integer.parseInt(args[0]);
 
         } catch (Exception ex) {
@@ -85,9 +87,9 @@ public class OrgChatServer extends WebSocketServer {
         server.start();
         System.out.println("ChatServer started on port: " + server.getPort());
 
-        BufferedReader sysin = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            String in = sysin.readLine();
+            String in = reader.readLine();
             server.broadcast(in);
             if (in.equals("exit")) {
                 server.stop(1000);
