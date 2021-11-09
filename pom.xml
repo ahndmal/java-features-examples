@@ -139,6 +139,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-websocket</artifactId>
+            <version>9.0.53</version>
+        </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.junit.platform</groupId>-->
         <!--            <artifactId>junit-platform-runner</artifactId>-->
@@ -146,6 +151,11 @@
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
 
+        <dependency>
+            <groupId>org.java-websocket</groupId>
+            <artifactId>Java-WebSocket</artifactId>
+            <version>1.5.2</version>
+        </dependency>
 
     </dependencies>
     <groupId>com.anma.java</groupId>

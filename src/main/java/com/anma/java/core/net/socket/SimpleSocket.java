@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SimpleSocket {
@@ -11,7 +12,9 @@ public class SimpleSocket {
     public static void main(String[] args) throws IOException {
 
 //        Socket socket = new Socket("localhost", 7071);
-        Socket socket = new Socket(InetAddress.getLocalHost(), 8088);
+        ServerSocket serverSocket = new ServerSocket(7072);
+        System.out.println(">> Server started");
+        Socket socket = new Socket(InetAddress.getLocalHost(), 7072);
 
         InputStream is = socket.getInputStream();
         OutputStream os = socket.getOutputStream();
