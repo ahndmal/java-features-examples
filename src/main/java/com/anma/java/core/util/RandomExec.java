@@ -14,9 +14,12 @@ public class RandomExec {
 //        doubleStream.forEach(System.out::println);
 //        doubleStream2.filter(el -> el < 10).collect(Collectors.toList());
 
-        for (int i = 0; i < 40; i++) {
-            System.out.println(random.nextInt(20));
-        }
+//        for (int i = 0; i < 40; i++) {
+//            System.out.println(random.nextInt(10));
+//        }
+
+        random.ints(248,403, 651).forEach(System.out::println);
+
 
 //        for (int i = 0; i < 10; i++) {
 //            System.out.println(random.nextInt());
