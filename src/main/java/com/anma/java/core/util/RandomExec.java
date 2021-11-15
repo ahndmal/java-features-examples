@@ -14,7 +14,7 @@ public class RandomExec {
 //        doubleStream.forEach(System.out::println);
 //        doubleStream2.filter(el -> el < 10).collect(Collectors.toList());
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 40; i++) {
             System.out.println(random.nextInt(20));
         }
 
