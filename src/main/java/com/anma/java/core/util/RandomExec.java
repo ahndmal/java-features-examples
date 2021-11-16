@@ -18,8 +18,7 @@ public class RandomExec {
 //            System.out.println(random.nextInt(10));
 //        }
 
-        random.ints(248,403, 651).forEach(System.out::println);
-
+//        random.ints(248,403, 651).forEach(System.out::println);
 
 //        for (int i = 0; i < 10; i++) {
 //            System.out.println(random.nextInt());
