@@ -7,11 +7,23 @@ public class SystemExe {
 
     public static void main(String[] args) {
 
-        System.getenv("murz");
-        System.getProperty("murz");
-        System.getenv("java.home");
-        System.getProperty("java.home");
-        
+        // idea env
+        System.out.println(System.getenv("simba"));
+        System.out.println(System.getenv("run1"));
+
+        // OS Env
+        System.out.println("\ud83c\udf2b");
+        System.out.println("\ud83d\udc6f");
+        System.out.println(System.getenv("murz"));
+        System.out.println(System.getenv("SHLVL "));
+        System.out.println(System.getenv("java.home"));
+        System.out.println(System.getenv("JOURNAL_STREAM"));
+        System.out.println();
+        // OS Props
+        System.out.println(System.getProperty("murz"));
+        System.out.println(System.getProperty("JOURNAL_STREAM"));
+        System.out.println(System.getProperty("java.home"));
+        System.out.println(System.getProperty("simba"));
 
     }
 
