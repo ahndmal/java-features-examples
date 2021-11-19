@@ -3,11 +3,15 @@ package com.anma.java.core.lang;
 import java.util.Map;
 import java.util.Properties;
 
-public class SystemTester {
+public class SystemExe {
 
     public static void main(String[] args) {
 
-        systemEnv();
+        System.getenv("murz");
+        System.getProperty("murz");
+        System.getenv("java.home");
+        System.getProperty("java.home");
+        
 
     }
 
