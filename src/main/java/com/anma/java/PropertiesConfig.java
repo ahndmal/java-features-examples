@@ -9,7 +9,7 @@ public class PropertiesConfig {
     public static final String DB_LOGIN = "db.login";
     public static final String DB_PASSWORD = "db.password";
 
-    private static Properties properties = new Properties();
+    private static final Properties properties = new Properties();
 
     public static String getProperty(String name) {
         if (properties.isEmpty()) {
