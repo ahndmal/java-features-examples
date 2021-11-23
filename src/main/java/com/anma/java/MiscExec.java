@@ -6,6 +6,7 @@ import org.apache.commons.codec.binary.StringUtils;
 import java.text.Collator;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.ResourceBundle;
 
 public class MiscExec {
 
@@ -17,6 +18,7 @@ public class MiscExec {
 
         System.out.println(MiscExec.class.getClassLoader().getResource("text2.txt"));
         System.out.println(MiscExec.class.getClassLoader().getResourceAsStream ("text2.txt"));
+//        System.out.println(ResourceBundle.getBundle().getString("text2.txt"));
 
     }
 }
