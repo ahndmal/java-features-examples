@@ -3,7 +3,12 @@ package com.anma.java.core.nio;
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -18,7 +23,19 @@ public class FilesExe {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
 
-        readAllLines(wordFile);
+        String url = "http://localhost:7141/download/attachments/1966081/res.txt?version=1&modificationDate=1637660124946&api=v2";
+        ReadableByteChannel readableByteChannel = Channels.newChannel(new URL(url).openStream());
+        FileOutputStream fileOutputStream = new FileOutputStream("fromUrl");
+        FileChannel fileChannel = fileOutputStream.getChannel();
+        fileChannel.transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
+
+//        File fileFromUrl = new File(URI.create(url));
+//        fileFromUrl.setWritable(true);
+//        FileWriter writer = new FileWriter(fileFromUrl);
+//        writer.write("ADDED !!!!!");
+
+//        FileReader reader = new FileReader(fileFromUrl);
+//        System.out.println(reader.read());
     }
 
     private static void getFilesFromDir(String dir) throws IOException {
