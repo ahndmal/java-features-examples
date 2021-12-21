@@ -11,11 +11,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FilesNewTest {
 
-    @Test
+//    @Test
     void filesReadApiOne() throws IOException, URISyntaxException {
 
         URI txtFileUri = getClass().getClassLoader()

@@ -18,8 +18,7 @@ public class LambdaScopeTest {
             //
             // x = 99;
 
-            Consumer<Integer> myConsumer = (y) ->
-            {
+            Consumer<Integer> myConsumer = (y) -> {
                 System.out.println("x = " + x); // Statement A
                 System.out.println("y = " + y);
                 System.out.println("this.x = " + this.x);
