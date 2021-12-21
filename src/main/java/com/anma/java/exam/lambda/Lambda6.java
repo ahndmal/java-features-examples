@@ -10,6 +10,6 @@ public class Lambda6 {
         BiConsumer<String, String> biConsumer = (a,b) -> System.out.println(a + " : " + b);
         biConsumer.accept("2","3");
         BiFunction<Integer, Integer, Integer> biFunction = (a, b) -> a * b;
-        BiPredicate<Integer, Long> biPredicate =
+//        BiPredicate<Integer, Long> biPredicate =
     }
 }
