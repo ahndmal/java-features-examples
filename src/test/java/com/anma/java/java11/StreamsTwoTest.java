@@ -21,4 +21,12 @@ class StreamsTwoTest {
     @Test
     void main() {
     }
+
+    @Test
+    public void testTwo() {
+        int a = 57;
+        char c = 'C';
+        String str1 = "this is string one";
+        System.out.println("test");
+    }
 }
