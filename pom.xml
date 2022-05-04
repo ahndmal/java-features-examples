@@ -10,7 +10,7 @@
     <version>1.0.1</version>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <junit.version>5.8.1</junit.version>
     </properties>
 
