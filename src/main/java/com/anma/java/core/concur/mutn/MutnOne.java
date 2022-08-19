@@ -7,6 +7,8 @@ import io.smallrye.mutiny.subscription.UniEmitter;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -35,13 +37,17 @@ public class MutnOne {
                 .invoke((i) -> System.out.println(i))
                 .subscribe().asIterable();
 
-        Uni<String> uni = Uni.createFrom().completionStage(stage);
+        CompletionStage stage = CompletableFuture.runAsync(() -> {
+            System.out.println("Inside completion stage");
+        });
+        Uni<String> uniFromStage = Uni.createFrom().completionStage(stage);
+        uniFromStage.onItem().transform(i -> i + " added ").subscribe().with(el -> {});
 
     }
 
     public void emitOne() {
-        Supplier<String> supplier;
-        BiConsumer<String, UniEmitter<? super String>> consumer;
+        Supplier<String> supplier = () -> " in supplier ";
+        BiConsumer<String, UniEmitter<? super String>> consumer = (con, em) -> { em.fail(new RuntimeException("exception")); ; };
         Uni.createFrom().emitter(supplier, consumer).onItem();
 
         Uni<String> uni = Uni.createFrom().emitter(em -> {
