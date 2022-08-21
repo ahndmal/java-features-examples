@@ -14,5 +14,8 @@ public class VrtHttp2Serve {
                 .setKeyStoreOptions(new JksOptions().setPath("/path/to/my/keystore"));
 
         HttpServer server = vertx.createHttpServer(options);
+        server.requestHandler(req -> {
+            req.response().end("HTTP2 here!");
+        }).listen(8080);
     }
 }
