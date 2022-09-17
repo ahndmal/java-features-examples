@@ -3,6 +3,8 @@ package com.anma.java.core.nio;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -66,5 +68,18 @@ class Files3Test {
             date = date.replace(date.charAt(4), Character.toLowerCase(date.charAt(4))).replace(date.charAt(5), Character.toLowerCase(date.charAt(5)));
         }
         Assertions.assertEquals(date, "15/Jul/21");
+
     }
+
+
+
+//    @Test
+//    void name() {
+//        BufferedReader reader = new BufferedReader(new FileReader("aaa"));
+//        String currentLine;
+//        if ((currentLine = reader.readLine()) != null) {
+//            currentLine.trim();
+//        }
+//        currentLine = reader.readLine();
+//    }
 }
