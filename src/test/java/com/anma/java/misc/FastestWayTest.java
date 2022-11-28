@@ -10,7 +10,6 @@ public class FastestWayTest {
 
     @Test
     public void testGreetWithEquals() {
-
         assertEquals(FastestWay.shortestWay(100, 100, 50, 50), "Any City");
         assertEquals(FastestWay.shortestWay(90, 80, 50, 40), "City A: 1 hour(s)");
         assertEquals(FastestWay.shortestWay(320, 400, 50, 80), "City B: 5 hour(s)");
@@ -21,7 +20,6 @@ public class FastestWayTest {
 
     @Test
     public void randomTests() {
-
         int distA = getRandom(100, 1000);
         int distB = getRandom(100, 1000);
         int carSpeed = getRandom(20, 90);
