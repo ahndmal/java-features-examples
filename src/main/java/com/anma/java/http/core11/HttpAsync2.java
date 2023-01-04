@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
-public class HttpAsync {
+public class HttpAsync2 {
     public static void main(String[] args) {
 
         final List<URI> uris = Stream.of(
@@ -33,7 +31,7 @@ public class HttpAsync {
 
     private static CompletableFuture<Void> verifyUri(HttpClient httpClient, URI uri) {
         HttpRequest request = HttpRequest.newBuilder()
-                .timeout(Duration.ofSeconds(5))
+                .timeout(Duration.ofSeconds(10))
                 .uri(uri)
                 .build();
         return httpClient.sendAsync(request,
