@@ -12,17 +12,17 @@ public class DatesTests {
     @Test
     void datesTest() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MMM/yy");
-        LocalDate date1 = LocalDate.from(formatter.parse("15/JUL/21"));
+//        LocalDate date1 = LocalDate.from(formatter.parse("15/JUL/21"));
 //        LocalDate date2 = LocalDate.from(formatter.parse("15/jul/21"));
-        System.out.println(date1);
+//        System.out.println(date1);
 //        System.out.println(date2);
     }
 
     @Test
     void datesTestParse() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MMM/yy", Locale.ENGLISH);
-        LocalDate date1 = LocalDate.parse("15/JUL/21", formatter);
-        System.out.println(date1);
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MMM/yy", Locale.ENGLISH);
+//        LocalDate date1 = LocalDate.parse("15/JUL/21", formatter);
+//        System.out.println(date1);
     }
 
 
