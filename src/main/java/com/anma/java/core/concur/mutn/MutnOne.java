@@ -6,6 +6,7 @@ import io.smallrye.mutiny.subscription.Cancellable;
 import io.smallrye.mutiny.subscription.UniEmitter;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -15,6 +16,16 @@ import java.util.function.Supplier;
 
 public class MutnOne {
     public static void main(String[] args) {
+        var now = LocalDateTime.now();
+
+        Thread.startVirtualThread(() -> {
+            System.out.println("Hello, Project Loom!");
+        });
+
+        System.out.format(">> Action took %d", Duration.between(now, LocalDateTime.now()).toMillis());
+    }
+
+    private static void unis2() {
         Uni<Integer> uni = Uni.createFrom().item(1);
         Cancellable cancellable = uni
                 .subscribe().with(
@@ -42,7 +53,6 @@ public class MutnOne {
         });
         Uni<String> uniFromStage = Uni.createFrom().completionStage(stage);
         uniFromStage.onItem().transform(i -> i + " added ").subscribe().with(el -> {});
-
     }
 
     public void emitOne() {
