@@ -18,9 +18,9 @@ public class MutnOne {
     public static void main(String[] args) {
         var now = LocalDateTime.now();
 
-        Thread.startVirtualThread(() -> {
-            System.out.println("Hello, Project Loom!");
-        });
+        Uni.createFrom().emitter(em -> {
+            em.complete("HELLO");
+        }).subscribe().with(item -> System.out.println(item), System.out::println);
 
         System.out.format(">> Action took %d", Duration.between(now, LocalDateTime.now()).toMillis());
     }
