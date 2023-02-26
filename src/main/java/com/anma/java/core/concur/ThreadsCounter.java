@@ -19,6 +19,10 @@ public class ThreadsCounter {
         }
 
         // virtual
+//        countNumsVirtual();
+    }
+
+    private static void countNumsVirtual() {
         try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
             IntStream.range(0, 100_000).forEach(i -> executor.submit(() -> {
                 Thread.sleep(Duration.ofSeconds(1));
