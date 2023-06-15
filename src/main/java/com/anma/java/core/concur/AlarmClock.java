@@ -12,7 +12,7 @@ public class AlarmClock {
     private final long delayBetweenRuns;
     private final long shutdownAfter;
 
-    AlarmClock(long initialDelay, long delayBetweenBeeps, long stopAfter){
+    AlarmClock(long initialDelay, long delayBetweenBeeps, long stopAfter) {
         this.initialDelay = initialDelay;
         this.delayBetweenRuns = delayBetweenBeeps;
         this.shutdownAfter = stopAfter;
@@ -33,7 +33,7 @@ public class AlarmClock {
         System.out.println("Main ended.");
     }
 
-    void activateAlarmThenStop(){
+    void activateAlarmThenStop() {
         Runnable soundAlarmTask = new SoundAlarmTask();
         ScheduledFuture<?> soundAlarmFuture = scheduler.scheduleWithFixedDelay(
                 soundAlarmTask, initialDelay, delayBetweenRuns, TimeUnit.SECONDS
@@ -41,22 +41,27 @@ public class AlarmClock {
         Runnable stopAlarm = new StopAlarmTask(soundAlarmFuture);
         scheduler.schedule(stopAlarm, shutdownAfter, TimeUnit.SECONDS);
     }
+
     private static final int NUM_THREADS = 1;
     private static final boolean DONT_INTERRUPT_IF_RUNNING = false;
 
     private static final class SoundAlarmTask implements Runnable {
-        @Override public void run() {
+        @Override
+        public void run() {
             ++count;
             System.out.println("beep " + count);
         }
+
         private int count;
     }
 
     private final class StopAlarmTask implements Runnable {
-        StopAlarmTask(ScheduledFuture<?> schedFuture){
+        StopAlarmTask(ScheduledFuture<?> schedFuture) {
             this.schedFuture = schedFuture;
         }
-        @Override public void run() {
+
+        @Override
+        public void run() {
             System.out.println("Stopping alarm.");
             schedFuture.cancel(DONT_INTERRUPT_IF_RUNNING);
       /*
@@ -65,6 +70,7 @@ public class AlarmClock {
       */
             scheduler.shutdown();
         }
+
         private ScheduledFuture<?> schedFuture;
     }
 
