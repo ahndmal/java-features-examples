@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.Random;
 import java.util.concurrent.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,32 +45,42 @@ class MyFuturesTest {
     }
 
     @Test
-    void sub1() {
-
-        CompletableFuture completableFuture = CompletableFuture.runAsync(() -> {
-            for (int i = 0; i < 100000; i++) {
-                long a = 12234243142431432L;
-                a = a  / 123 - 123134 + 123343;
-                long b = a / 12345 + 1034324 - 123123 * 2 / 45 / 2 * 40 * 2 / 12 / 2 * 10;
-                long c = a - b;
-                System.out.println(c);
-            }
-        });
-        System.out.println(completableFuture.isDone());
+    void completableFutureOned() {
+        Future future = new FutureTask<>(() -> {
+            calc();
+        }, "res");
+//        CompletableFuture completableFuture = CompletableFuture.runAsync(() -> {
+//            calc();
+//        });
+        try {
+            future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(future.isDone());
     }
 
     @Test
     void simpleSout() {
-        var start = System.currentTimeMillis();
         var startMoment = LocalDateTime.now();
-        for (int i = 0; i < 100000; i++) {
-            long a = 12234243142431432L;
-            a = a  / 123 - 123134 + 123343;
-            long b = a / 12345 + 1034324 - 123123 * 2 / 45 / 2 * 40 * 2 / 12 / 2 * 10;
-            long c = a - b;
-            System.out.println(c);
-        }
+        calc();
         var end = Duration.between(startMoment, LocalDateTime.now()).toMillis();
         System.out.println(end);
+    }
+
+
+    private static void calc() {
+        for (int i = 0; i < 100000; i++) {
+            long a = 82234243142431432L;
+            var rand = new Random().nextInt(1000000, 1000000000);
+            long[] arr = {rand, (long) rand * 2, 923123523, 433213123, 343434343, 1111111111, rand};
+            for (int j = 0; j < arr.length; j++) {
+                a = arr[j] + a / 21333 - (123134 + 980980665) + (123123123 + 31213123)
+                        / 3 - 213213213 / 3 * 20 / 4 / 2 * 2 / 20 * 20;
+                long b = a / 12345 + 1034324 - 123123 * 2 / 45 / 2 * 40 * 2 / 12 / 2 * 10;
+                long c = a - b;
+                System.out.println(c);
+            }
+        }
     }
 }
