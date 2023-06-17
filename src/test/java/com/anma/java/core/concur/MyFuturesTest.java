@@ -4,14 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.Random;
 import java.util.concurrent.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MyFuturesTest {
-
     @Test
     void testFuture() {
 //        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,1,1L, TimeUnit.HOURS, new ArrayBlockingQueue<>(1));
@@ -68,12 +64,19 @@ class MyFuturesTest {
         System.out.println(end);
     }
 
+    @Test
+    void randomm() {
+        for (int i = 0; i < 10; i++) {
+            var rand = new Random().nextInt(1_000_000, 1_000_000_000);
+            System.out.println(rand);
+        }
+    }
 
     private static void calc() {
         for (int i = 0; i < 100000; i++) {
             long a = 82234243142431432L;
             var rand = new Random().nextInt(1000000, 1000000000);
-            long[] arr = {rand, (long) rand * 2, 923123523, 433213123, 343434343, 1111111111, rand};
+            long[] arr = {rand * 3L, rand * 2L, rand, rand, rand, rand, rand, rand};
             for (int j = 0; j < arr.length; j++) {
                 a = arr[j] + a / 21333 - (123134 + 980980665) + (123123123 + 31213123)
                         / 3 - 213213213 / 3 * 20 / 4 / 2 * 2 / 20 * 20;
