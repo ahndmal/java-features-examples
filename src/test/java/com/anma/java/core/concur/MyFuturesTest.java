@@ -72,6 +72,7 @@ class MyFuturesTest {
         }
     }
 
+
     private static void calc() {
         for (int i = 0; i < 100000; i++) {
             long a = 82234243142431432L;

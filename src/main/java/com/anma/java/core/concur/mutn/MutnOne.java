@@ -20,7 +20,8 @@ public class MutnOne {
 
         Uni.createFrom().emitter(em -> {
             em.complete("HELLO");
-        }).subscribe().with(item -> System.out.println(item), System.out::println);
+        }).subscribe()
+                .with(item -> System.out.println(item), System.out::println);
 
         System.out.format(">> Action took %d", Duration.between(now, LocalDateTime.now()).toMillis());
     }
@@ -32,15 +33,21 @@ public class MutnOne {
                         item -> System.out.println(item),
                         failure -> System.out.println("Failed with " + failure));
 
+        try {
+            cancellable.wait(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         AtomicInteger counter = new AtomicInteger();
         Uni<Integer> uni2 = Uni.createFrom().item(() -> counter.getAndIncrement());
 
         Uni<Void> uniVoid = Uni.createFrom().nullItem();
 
-
         Uni.createFrom().item("Item 1").onItem()
                 .delayIt().by(Duration.ofSeconds(1))
-                .subscribe().with(it -> System.out.println(it));
+                .subscribe()
+                .with(it -> System.out.println(it));
 
         Multi.createFrom()
                 .iterable(List.of(1, 2, 3, 4, 5))
