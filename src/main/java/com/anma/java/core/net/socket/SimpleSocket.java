@@ -10,7 +10,6 @@ import java.net.Socket;
 public class SimpleSocket {
 
     public static void main(String[] args) throws IOException {
-
 //        Socket socket = new Socket("localhost", 7071);
         ServerSocket serverSocket = new ServerSocket(7072);
         System.out.println(">> Server started");

@@ -12,80 +12,71 @@ import java.net.UnknownHostException;
 /*
 https://docs.oracle.com/javase/tutorial/networking/sockets/clientServer.html
  */
-
 public class SocketEcho {
-
-}
-
-class EchoClient {
-
-    public static void main(String[] args) throws IOException {
-
-//        if (args.length != 2) {
-//            System.err.println(
-//                    "Usage: java EchoClient <host name> <port number>");
-//            System.exit(1);
-//        }
-
-//        String hostName = "DESKTOP-MVCJ9TB";
-//        String hostName = "localhost";
-        String hostName = InetAddress.getLocalHost().getHostName();
-        int portNumber = 8093;
-
-        try (
-                Socket echoSocket = new Socket(hostName, portNumber);
-                PrintWriter out =
-                        new PrintWriter(echoSocket.getOutputStream(), true);
-                BufferedReader in =
-                        new BufferedReader(
-                                new InputStreamReader(echoSocket.getInputStream()));
-                BufferedReader stdIn =
-                        new BufferedReader(
-                                new InputStreamReader(System.in))
-        ) {
-            String userInput;
-            while ((userInput = stdIn.readLine()) != null || !(userInput = stdIn.readLine()).equalsIgnoreCase("exit")) {
-                out.println(userInput);
-                System.out.println("Socket in Client: " + in.readLine());
-            }
-        } catch (UnknownHostException e) {
-            System.err.println("Don't know about host " + InetAddress.getByName(null));
-            System.exit(1);
-        } catch (IOException e) {
-            System.err.println("Couldn't get I/O for the connection to " +
-                    hostName);
-            System.exit(1);
-        }
-    }
 }
 
 class EchoServer {
-
     public static void main(String[] args) throws IOException {
-
-//        if (args.length != 1) {
-//            System.err.println("Usage: java EchoServer <port number>");
-//            System.exit(1);
-//        }
-
-//        int portNumber = Integer.parseInt(args[0]);
-        int portNumber = 8093;
-
+        final int PORT = 8093;
+        System.out.println(">> Starting server on port " + PORT);
         try (
-                ServerSocket serverSocket = new ServerSocket(8093);
-                Socket clientSocket = serverSocket.accept();
-                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(clientSocket.getInputStream()));
+                ServerSocket serverSocket = new ServerSocket(PORT);
+                Socket cln = serverSocket.accept();
+                PrintWriter out = new PrintWriter(cln.getOutputStream(), true);
+                BufferedReader clientIn = new BufferedReader(
+                        new InputStreamReader(cln.getInputStream()));
+                BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))
         ) {
             String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                out.println("Socket in server: " + inputLine);
+            while ((inputLine = clientIn.readLine()) != null) {
+                System.out.printf(">> \u001b[33mServer got:\u001b[0m  %s  \n", inputLine);
             }
+
+            String sent;
+            while ((sent = stdIn.readLine()) != null) {
+                out.println(sent);
+                System.out.printf(">> \u001b[33mServer sent:\u001b[0m  %s  \n", sent);
+            }
+
         } catch (IOException e) {
-            System.out.println("Exception caught when trying to listen on port "
-                    + portNumber + " or listening for a connection");
+            System.out.printf("Exception caught trying to listen on port %d", PORT);
             System.out.println(e.getMessage());
         }
     }
 }
+
+
+class EchoClient {
+    final static int PORT = 8093;
+    public static void main(String[] args) throws IOException {
+        String hostName = InetAddress.getLocalHost().getHostName();
+        try (Socket echoSocket = new Socket(hostName, PORT);
+             PrintWriter out = new PrintWriter(echoSocket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(
+                     new InputStreamReader(echoSocket.getInputStream()));
+             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))
+        ) {
+            System.out.println("> Started CLIENT on port " + PORT);
+            String userInput;
+            while ((userInput = stdIn.readLine()) != null
+                    || !(userInput = stdIn.readLine()).equalsIgnoreCase("exit")) {
+                out.println(userInput);
+                System.out.println("> \u001b[35mClient sent: \u001b[0m: " + userInput + "\n");
+            }
+
+            String recv;
+            while ((recv = in.readLine()) != null) {
+                System.out.println("> \u001b[35mClient recieved: \u001b[0m: " + recv + "\n");
+            }
+
+        } catch (UnknownHostException e) {
+            System.err.println("Don't know about host " + hostName);
+            System.exit(1);
+        } catch (IOException e) {
+            System.err.println("Couldn't get I/O for the connection to " + hostName);
+            System.exit(1);
+        }
+    }
+}
+
+

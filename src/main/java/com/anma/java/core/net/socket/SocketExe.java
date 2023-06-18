@@ -22,13 +22,15 @@ public class SocketExe {
 //        client.setKeepAlive(true);
 //        client.sendUrgentData(2);
 
-        PrintWriter writer = new PrintWriter(new OutputStreamWriter(client.getOutputStream(), StandardCharsets.UTF_8), true);
+        PrintWriter writer = new PrintWriter(
+                new OutputStreamWriter(
+                        client.getOutputStream(),
+                        StandardCharsets.UTF_8),
+                true);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
                         client.getInputStream(), "UTF-8"));
 //        InputStreamReader reader = (new InputStreamReader(client.getInputStream(), "UTF8"));
-
-
 
         writer.write("Hello from server!");
 
@@ -50,8 +52,7 @@ public class SocketExe {
             System.out.println("Received message from Client: " + reader.readLine());
         }
 
-
-//        client.
+//        client
 
         reader.close();
         writer.flush();

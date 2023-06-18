@@ -17,9 +17,7 @@ import java.util.regex.Pattern;
 /* https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_a_WebSocket_server_in_Java */
 
 public class MdnSockets {
-
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-
         try (ServerSocket server = new ServerSocket(7072)) {
 
             System.out.println("Server has started on 127.0.0.1:80.\r\nWaiting for a connection...");

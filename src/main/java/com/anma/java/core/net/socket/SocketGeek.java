@@ -12,20 +12,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SocketGeek {
-
-    private static final String WWW = SocketGeek.class.getResource("/www").toString();    //"E:\\programming\\java\\projects\\java-example\\src\\resources\\www";
+    private static final String WWW = SocketGeek.class.getResource("/www").toString();
+    static final int PORT = 7072;
 
     public static void main(String[] args) {
         System.out.println(WWW);
-
-        try (ServerSocket serverSocket = new ServerSocket(7072)) {
+        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             System.out.println("Server started!");
-
             while (true) {
-
                 Socket socket = serverSocket.accept();
-                System.out.println("New client connected!");
-
+                System.out.println("\u001b[34mNew client connected!\u001b[0m \n");
                 new Thread(() -> handleRequest(socket)).start();
             }
         } catch (IOException e) {
@@ -34,13 +30,11 @@ public class SocketGeek {
     }
 
     private static void handleRequest(Socket socket) {
-
-        try (BufferedReader input = new BufferedReader(
-                new InputStreamReader(
-                        socket.getInputStream(), StandardCharsets.UTF_8));
+        try (BufferedReader input = new BufferedReader(new InputStreamReader(
+                socket.getInputStream(), StandardCharsets.UTF_8));
              PrintWriter output = new PrintWriter(socket.getOutputStream())
         ) {
-            while (!input.ready());
+            while (!input.ready()) ;
 
             String firstLine = input.readLine();
             String[] parts = firstLine.split(" ");
