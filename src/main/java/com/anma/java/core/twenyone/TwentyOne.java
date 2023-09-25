@@ -1,14 +1,16 @@
 package com.anma.java.core.twenyone;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
+import static java.time.DayOfWeek.MONDAY;
+import static java.time.DayOfWeek.TUESDAY;
 import static java.util.stream.Collectors.toList;
 
 record Person(String name, int age) {
     Person {
         System.out.println(">> initializing Person object");
     }
-
     public int age() {
         return this.age;
     }
@@ -16,9 +18,24 @@ record Person(String name, int age) {
 }
 
 public class TwentyOne {
-
     public static void main(String[] args) {
 
+        var day = TUESDAY;
+
+        int j = switch (day) {
+            case MONDAY  -> 0;
+            case TUESDAY -> 1;
+            default      -> {
+                int k = day.toString().length();
+                int result = 1000;
+                yield result;
+            }
+        };
+
+    }
+
+
+    private static void switchism() {
         String name = "Ostap";
 
         switch (name) {
@@ -33,7 +50,15 @@ public class TwentyOne {
         };
 
         System.out.println(result);
+    }
 
+
+    static void howMany(int k) {
+        switch (k) {
+            case 1  -> System.out.println("one");
+            case 2  -> System.out.println("two");
+            default -> System.out.println("many");
+        }
     }
 
     List<Person> findTopMerchants(List<Person> persons, int month) {
