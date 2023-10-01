@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 
 class MyFuturesTest {
     @Test
-    void testFuture() {
+    void testFutureThreadPool() {
 //        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,1,1L, TimeUnit.HOURS, new ArrayBlockingQueue<>(1));
 //        ExecutorCompletionService service = new ExecutorCompletionService<>(threadPoolExecutor);
 //        service.submit(() -> {
@@ -43,7 +43,7 @@ class MyFuturesTest {
     @Test
     void completableFutureOned() {
         Future future = new FutureTask<>(() -> {
-            calc();
+            calc(5000);
         }, "res");
 //        CompletableFuture completableFuture = CompletableFuture.runAsync(() -> {
 //            calc();
@@ -57,15 +57,15 @@ class MyFuturesTest {
     }
 
     @Test
-    void simpleSout() {
+    void simpleSoutCalcTest() {
         var startMoment = LocalDateTime.now();
-        calc();
+        calc(200_000);
         var end = Duration.between(startMoment, LocalDateTime.now()).toMillis();
-        System.out.println(end);
+        System.out.println(" >>> " + end);
     }
 
     @Test
-    void randomm() {
+    void randomNextIntTest() {
         for (int i = 0; i < 10; i++) {
             var rand = new Random().nextInt(1_000_000, 1_000_000_000);
             System.out.println(rand);
@@ -73,8 +73,8 @@ class MyFuturesTest {
     }
 
 
-    private static void calc() {
-        for (int i = 0; i < 100000; i++) {
+    private static void calc(long times) {
+        for (int i = 0; i < times; i++) {
             long a = 82234243142431432L;
             var rand = new Random().nextInt(1000000, 1000000000);
             long[] arr = {rand * 3L, rand * 2L, rand, rand, rand, rand, rand, rand};
