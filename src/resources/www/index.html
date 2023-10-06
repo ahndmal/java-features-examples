@@ -5,9 +5,21 @@
     <title>Index</title>
 </head>
 <body>
-
     <h1>Index</h1>
 
+    <div class="root"></div>
 
+    <script type="text/javascript">
+        const socket = new WebSocket("ws://localhost:8082");
+
+        socket.addEventListener('open', evt => {
+            socket.send("Hello Server!");
+        });
+
+        socket.addEventListener("message", (event) => {
+            console.log("Message from server: ", event.data);
+        });
+
+    </script>
 </body>
 </html>
