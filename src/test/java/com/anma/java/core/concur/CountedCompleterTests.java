@@ -8,7 +8,7 @@ public class CountedCompleterTests {
     @Test
     void executors() {
         Callable<Object> callable = Executors.callable(() -> {
-            System.out.println("> Calling callebla");
+            System.out.println("> Calling callable");
         });
         try {
             callable.call();
@@ -16,13 +16,10 @@ public class CountedCompleterTests {
             throw new RuntimeException(e);
         }
 
-
-
     }
 
     @Test
     void testOne() {
-
 //        ExecutorCompletionService executorCompletionService = new ExecutorCompletionService(
 //                () -> {};
 //        );

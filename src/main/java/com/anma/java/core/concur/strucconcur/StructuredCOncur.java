@@ -10,9 +10,9 @@ import java.util.concurrent.ThreadFactory;
 public class StructuredCOncur<U, T> {
     public static void main(String[] args) {
 //        Creating and starting a virtual thread can be done like so:
-        Thread t = Thread.startVirtualThread(() -> {
-            System.out.println("aa");
-        });
+//        Thread t = Thread.startVirtualThread(() -> {
+//            System.out.println("aa");
+//        });
 
 //        For more flexibility, there’s the new Thread.Builder, that can do the same thing as above:
 //        Thread t2 = Thread.builder().virtual().task(() -> {
