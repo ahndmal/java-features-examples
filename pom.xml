@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
-            <version>5.16.0</version>
+            <version>5.18.0</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.4</version>
+            <version>2.0.9</version>
         </dependency>
         <dependency>
             <groupId>com.sun.mail</groupId>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>4.5.0</version>
+            <version>4.6.2</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -95,7 +95,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.4.3</version>
+            <version>42.6.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
@@ -137,7 +137,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-websocket</artifactId>
-            <version>9.0.79</version>
+            <version>9.0.82</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.junit.platform</groupId>-->
@@ -153,7 +153,7 @@
         <dependency>
             <groupId>io.smallrye.reactive</groupId>
             <artifactId>mutiny</artifactId>
-            <version>2.0.0</version>
+            <version>2.3.1</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>

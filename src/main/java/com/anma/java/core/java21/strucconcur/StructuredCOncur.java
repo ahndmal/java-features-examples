@@ -1,4 +1,4 @@
-package com.anma.java.core.concur.strucconcur;
+package com.anma.java.core.java21.strucconcur;
 
 //import jdk.incubator.concurrent.StructuredTaskScope;
 
