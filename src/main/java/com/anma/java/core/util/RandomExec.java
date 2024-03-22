@@ -25,4 +25,28 @@ public class RandomExec {
 //        }
 //        System.out.println(doubleStream.findFirst().getAsDouble());
     }
+
+    public static String randomString(int length) {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int index = new Random().nextInt(0, alphabet.length());
+            sb.append(alphabet.charAt(index));
+        }
+        return sb.toString();
+    }
+
+    public static String randomStringWithExclamations(int length) {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int index = new Random().nextInt(0, alphabet.length());
+            if (index < 6) {
+                sb.append("!");
+            } else {
+                sb.append(alphabet.charAt(index));
+            }
+        }
+        return sb.toString();
+    }
 }
