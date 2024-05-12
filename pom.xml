@@ -7,10 +7,10 @@
     <groupId>com.andmal</groupId>
     <artifactId>java-examples</artifactId>
 
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>22</java.version>
         <junit.version>5.8.1</junit.version>
     </properties>
 
