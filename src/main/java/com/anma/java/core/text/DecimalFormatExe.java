@@ -7,7 +7,12 @@ public class DecimalFormatExe {
     public static void main(String[] args) {
 
         DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance();
+
         DecimalFormat decimalFormat1 = new DecimalFormat("#0.00");
-        System.out.println(decimalFormat1.format(45.34567));
+
+        String formatted = decimalFormat1.format(45.34567);
+        double formattedDouble = Double.parseDouble(decimalFormat1.format(45.34567));
+
+        System.out.println(formatted);
     }
 }

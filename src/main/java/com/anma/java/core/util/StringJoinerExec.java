@@ -4,10 +4,12 @@ import java.util.StringJoiner;
 
 public class StringJoinerExec {
 
-    public static void main(String[] args) {
+    public void joiner() {
 
         StringJoiner joiner = new StringJoiner(":");
+
         joiner.add("One").add("Two").add("Three");
+
         System.out.println(joiner.toString());
     }
 }

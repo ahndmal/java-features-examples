@@ -1,12 +1,15 @@
 package com.anma.java.func;
 
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class MethodRefs {
 
     void references() {
+
+        // ------------------------ Bound non-static method references
 
         var now = LocalDate.now();
 
@@ -21,7 +24,7 @@ public class MethodRefs {
         // BIND STATIC FIELD
         Function<Object, String> castToStr = String.class::cast;
 
-        /////
+        // --------------- Unbound non-static method references
 
         // LAMBDA
         Function<String, String> toLowerCaseLambda = str -> str.toLowerCase();
@@ -29,6 +32,14 @@ public class MethodRefs {
         // UNBOUND NON-STATIC METHOD REFERENCE
         Function<String, String> toLowerCaseRef = String::toLowerCase;
 
+
+        // ------------- Constructor references
+
+        // LAMBDA
+        Function<String, Locale> newLocaleLambda = language -> new Locale(language);
+
+        // CONSTRUCTOR REFERENCE
+        Function<String, Locale> newLocaleRef = Locale::new;
 
 
     }
