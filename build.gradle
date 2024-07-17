@@ -1,0 +1,49 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+    1
+dependencies {
+    implementation 'com.rabbitmq:amqp-client:5.20.0'
+    implementation 'org.slf4j:slf4j-api:2.0.13'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.mashape.unirest:unirest-java:1.4.9'
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.17.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.17.1'
+    implementation 'javax.servlet:jstl:1.2'
+    implementation 'org.webjars:bootstrap:4.6.2'
+    implementation 'org.webjars:jquery:3.7.1'
+    implementation 'org.postgresql:postgresql:42.7.2'
+    implementation 'org.json:json:20231013'
+    implementation 'org.java-websocket:Java-WebSocket:1.5.6'
+    implementation 'io.smallrye.reactive:mutiny:2.5.8'
+    implementation 'io.vertx:vertx-core:4.5.7'
+    implementation 'io.vertx:vertx-web-client:4.5.7'
+    implementation 'org.jsoup:jsoup:1.17.2'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-websocket:9.0.89'
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation libs.junit.jupiter
+    testImplementation 'org.slf4j:slf4j-simple:2.0.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation libs.guava
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass = 'com.anma.java.MiscExec'
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
