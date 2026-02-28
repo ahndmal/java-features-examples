@@ -5,7 +5,7 @@ plugins {
 repositories {
     mavenCentral()
 }
-    1
+
 dependencies {
     implementation 'com.rabbitmq:amqp-client:5.20.0'
     implementation 'org.slf4j:slf4j-api:2.0.13'
@@ -35,7 +35,7 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
